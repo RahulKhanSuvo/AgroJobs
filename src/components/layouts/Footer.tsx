@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-import { Logo, LogoImage, LogoText } from "@/components/shadcnblocks/logo";
+import { Logo, LogoImage, LogoText } from "@/components/common/logo";
 import Container from "../common/Container";
 
 interface MenuItem {
