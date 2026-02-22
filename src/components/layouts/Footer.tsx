@@ -63,7 +63,7 @@ const Footer = ({
     {
       title: "Resources",
       links: [
-        { text: "Help", url: "#" },
+        { text: "Help", url: "#fa" },
         { text: "Sales", url: "#" },
         { text: "Advertise", url: "#" },
       ],
