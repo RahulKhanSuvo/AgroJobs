@@ -1,10 +1,11 @@
-import Container from "@/components/common/Container";
 import HeroSection from "./HeroSection";
+import StepSection from "./StepSection";
 
 export default function Home() {
   return (
-    <Container>
+    <>
       <HeroSection />
-    </Container>
+      <StepSection />
+    </>
   );
 }

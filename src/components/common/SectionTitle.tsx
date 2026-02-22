@@ -7,7 +7,7 @@ const sectionTitleVariants = cva("font-bold tracking-tight text-foreground", {
     size: {
       sm: "text-xl",
       md: "text-2xl",
-      lg: "text-3xl",
+      lg: "text-4xl",
       xl: "text-6xl",
     },
     align: {
@@ -23,19 +23,19 @@ const sectionTitleVariants = cva("font-bold tracking-tight text-foreground", {
 });
 
 type SectionTitleProps = VariantProps<typeof sectionTitleVariants> & {
-  title: string;
+  children: React.ReactNode;
   className?: string;
 };
 
 export default function SectionTitle({
-  title,
+  children,
   className,
   size,
   align,
 }: SectionTitleProps) {
   return (
     <h2 className={cn(sectionTitleVariants({ size, align }), className)}>
-      {title}
+      {children}
     </h2>
   );
 }
