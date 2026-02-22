@@ -1,5 +1,5 @@
-import HeroSection from "./HeroSection";
-import StepSection from "./StepSection";
+import HeroSection from "./hero/HeroSection";
+import StepSection from "./Steps/StepSection";
 
 export default function Home() {
   return (
