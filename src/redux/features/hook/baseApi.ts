@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
-
 import type { RootState } from "@/redux/store";
 import {
   createApi,
@@ -22,7 +20,7 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReauth = async (
   args: string | FetchArgs,
   api: BaseQueryApi,
-  extraOptions: {},
+  extraOptions: object,
 ) => {
   let result = await baseQuery(args, api, extraOptions);
   if (result?.error?.status === 401) {
@@ -48,6 +46,6 @@ const basApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithReauth,
   endpoints: () => ({}),
-  tagTypes: ["Courses", "User", "Support", "Badges"],
+  tagTypes: ["User"],
 });
 export default basApi;
