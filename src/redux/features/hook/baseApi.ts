@@ -24,14 +24,11 @@ const baseQueryWithReauth = async (
 ) => {
   let result = await baseQuery(args, api, extraOptions);
   if (result?.error?.status === 401) {
-    console.log("sending refesh token");
-    // get new
     const refreshResult = await baseQuery(
       { url: "/auth/refresh", method: "POST" },
       api,
       extraOptions,
     );
-    console.log("refresh result", refreshResult);
     if (refreshResult?.data) {
       const user = (api.getState() as RootState).auth.user;
       api.dispatch(setCredentials({ token: refreshResult.data, user }));
@@ -42,10 +39,10 @@ const baseQueryWithReauth = async (
   }
   return result;
 };
-const basApi = createApi({
+const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithReauth,
   endpoints: () => ({}),
   tagTypes: ["User"],
 });
-export default basApi;
+export default baseApi;

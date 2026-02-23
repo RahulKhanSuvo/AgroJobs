@@ -19,16 +19,27 @@ import {
 import { Input } from "@/components/ui/input";
 import { loginSchema } from "@/pages/auth/authSchema";
 import type { LoginFormData } from "@/pages/auth/authSchema";
+import { toast } from "sonner";
+import { useLoginMutation } from "@/redux/features/auth/auth.api";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const [signIn, { isLoading }] = useLoginMutation();
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
   });
-  const onSubmit = (data: LoginFormData) => {
+  const onSubmit = async (data: LoginFormData) => {
     console.log("Validated data:", data);
+    try {
+      const res = await signIn(data).unwrap();
+      console.log(res);
+      toast.success("sign up success");
+    } catch (error) {
+      console.log(error);
+      toast.error("login error");
+    }
   };
 
   return (
@@ -77,7 +88,9 @@ export function LoginForm({
                 )}
               </Field>
               <Field>
-                <Button type="submit">Login</Button>
+                <Button type="submit">
+                  {isLoading ? "Logging..." : "Login"}
+                </Button>
                 <Button variant="outline" type="button">
                   Login with Google
                 </Button>
