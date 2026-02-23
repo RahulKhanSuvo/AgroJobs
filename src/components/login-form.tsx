@@ -1,24 +1,36 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   Field,
   FieldDescription,
+  FieldError,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { loginSchema } from "@/pages/auth/authSchema";
+import type { LoginFormData } from "@/pages/auth/authSchema";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const form = useForm<LoginFormData>({
+    resolver: zodResolver(loginSchema),
+  });
+  const onSubmit = (data: LoginFormData) => {
+    console.log("Validated data:", data);
+  };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -29,16 +41,20 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input
                   id="email"
                   type="email"
+                  aria-invalid={!!form.formState.errors.email}
                   placeholder="m@example.com"
-                  required
+                  {...form.register("email")}
                 />
+                {form.formState.errors.email && (
+                  <FieldError errors={[form.formState.errors.email]} />
+                )}
               </Field>
               <Field>
                 <div className="flex items-center">
@@ -50,7 +66,15 @@ export function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input
+                  id="password"
+                  type="password"
+                  aria-invalid={!!form.formState.errors.password}
+                  {...form.register("password")}
+                />
+                {form.formState.errors.password && (
+                  <FieldError errors={[form.formState.errors.password]} />
+                )}
               </Field>
               <Field>
                 <Button type="submit">Login</Button>
@@ -66,5 +90,5 @@ export function LoginForm({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
