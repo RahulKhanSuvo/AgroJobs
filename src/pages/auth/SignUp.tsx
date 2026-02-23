@@ -1,5 +1,73 @@
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+
 export default function SignUp() {
-  return <div></div>;
+  return (
+    <div className="">
+      <Card className="w-full sm:max-w-md mx-auto">
+        <CardHeader>
+          <CardTitle>Sign up form</CardTitle>
+          <CardDescription>this for sing up</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form id="form-rhf-demo">
+            <FieldGroup>
+              <Field>
+                <FieldLabel htmlFor="firstName">First Name</FieldLabel>
+                <Input
+                  name="firstName"
+                  id="firstName"
+                  type="text"
+                  placeholder="John"
+                />
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="lastName">lastName</FieldLabel>
+                <Input
+                  name="lastName"
+                  id="lastName"
+                  type="text"
+                  placeholder="don"
+                />
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="phone">Phone</FieldLabel>
+                <Input
+                  name="phone"
+                  id="phone"
+                  type="number"
+                  placeholder="+88015484234"
+                />
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="email">email</FieldLabel>
+                <Input
+                  name="email"
+                  id="email"
+                  type="email"
+                  placeholder="example@gmail.com"
+                />
+              </Field>
+            </FieldGroup>
+          </form>
+        </CardContent>
+        <CardFooter>
+          <Button type="submit" form="form-rhf-demo">
+            Sign up
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
+  );
 }
 // "use client";
 
