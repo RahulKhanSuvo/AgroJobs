@@ -21,6 +21,7 @@ import { loginSchema } from "@/pages/auth/authSchema";
 import type { LoginFormData } from "@/pages/auth/authSchema";
 import { toast } from "sonner";
 import { useLoginMutation } from "@/redux/features/auth/auth.api";
+import { errorToast } from "@/utils/errorToast";
 
 export function LoginForm({
   className,
@@ -31,14 +32,12 @@ export function LoginForm({
     resolver: zodResolver(loginSchema),
   });
   const onSubmit = async (data: LoginFormData) => {
-    console.log("Validated data:", data);
     try {
       const res = await signIn(data).unwrap();
-      console.log(res);
+      console.log(res.message);
       toast.success("sign up success");
     } catch (error) {
-      console.log(error);
-      toast.error("login error");
+      errorToast(error);
     }
   };
 
