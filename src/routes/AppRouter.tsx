@@ -1,3 +1,4 @@
+import CandidateLayout from "@/layouts/CandidateLayout";
 import MainLayout from "@/layouts/MainLayout";
 import Login from "@/pages/auth/Login";
 import SignUp from "@/pages/auth/SignUp";
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         element: <Login />,
       },
     ],
+  },
+  // candidate layout
+  {
+    path: "/candidate",
+    element: <CandidateLayout />,
   },
   {
     path: "*",
