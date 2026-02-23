@@ -1,8 +1,10 @@
 import baseApi from "../hook/baseApi";
+import type { LoginFormData } from "@/pages/auth/authSchema";
+import type { LoginSuccessResponse } from "./auth.type";
 
 const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.mutation({
+    login: builder.mutation<LoginSuccessResponse, LoginFormData>({
       query: (payload) => ({
         url: "/auth/login",
         method: "POST",

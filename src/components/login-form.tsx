@@ -22,20 +22,23 @@ import type { LoginFormData } from "@/pages/auth/authSchema";
 import { toast } from "sonner";
 import { useLoginMutation } from "@/redux/features/auth/auth.api";
 import { errorToast } from "@/utils/errorToast";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "@/redux/features/auth/authSlice";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const [signIn, { isLoading }] = useLoginMutation();
+  const dispatch = useDispatch();
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
   });
-  const onSubmit = async (data: LoginFormData) => {
+  const onSubmit = async (formData: LoginFormData) => {
     try {
-      const res = await signIn(data).unwrap();
-      console.log(res.message);
+      const { data } = await signIn(formData).unwrap();
       toast.success("sign up success");
+      dispatch(setCredentials({ user: data.user, token: data.accessToken }));
     } catch (error) {
       errorToast(error);
     }
