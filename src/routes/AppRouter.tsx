@@ -5,6 +5,7 @@ import SignUp from "@/pages/auth/SignUp";
 import Error from "@/pages/Error";
 import Home from "@/pages/Home/Home";
 import { createBrowserRouter } from "react-router";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
   // candidate layout
   {
     path: "/candidate",
-    element: <CandidateLayout />,
+    element: (
+      <ProtectedRoute allowRole={["USER"]}>
+        <CandidateLayout />
+      </ProtectedRoute>
+    ),
   },
   {
     path: "*",

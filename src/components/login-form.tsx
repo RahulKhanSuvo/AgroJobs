@@ -24,6 +24,7 @@ import { useLoginMutation } from "@/redux/features/auth/auth.api";
 import { errorToast } from "@/utils/errorToast";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "@/redux/features/auth/authSlice";
+import { useNavigate } from "react-router";
 
 export function LoginForm({
   className,
@@ -31,6 +32,7 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   const [signIn, { isLoading }] = useLoginMutation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
   });
@@ -39,6 +41,7 @@ export function LoginForm({
       const { data } = await signIn(formData).unwrap();
       toast.success("sign up success");
       dispatch(setCredentials({ user: data.user, token: data.accessToken }));
+      navigate("/candidate", { replace: true });
     } catch (error) {
       errorToast(error);
     }

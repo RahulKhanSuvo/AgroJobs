@@ -7,18 +7,15 @@ import ReduxProvider from "./providers/ReduxProvider.tsx";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "./providers/ThemeProvider.tsx";
 import { TooltipProvider } from "./components/ui/tooltip.tsx";
-import { SidebarProvider } from "./components/ui/sidebar.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ReduxProvider>
       <ThemeProvider>
-        <SidebarProvider>
-          <TooltipProvider>
-            <RouterProvider router={router} />
-            <Toaster />
-          </TooltipProvider>
-        </SidebarProvider>
+        <TooltipProvider>
+          <RouterProvider router={router} />
+          <Toaster />
+        </TooltipProvider>
       </ThemeProvider>
     </ReduxProvider>
   </StrictMode>,
