@@ -1,7 +1,4 @@
-import {
-  selectCurrentUser,
-  selectToken,
-} from "@/redux/features/auth/authSlice";
+import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import type { ReactNode } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
@@ -14,9 +11,8 @@ export default function ProtectedRoute({
   allowRole = [],
 }: ProtectedRouteProps) {
   const user = useSelector(selectCurrentUser);
-  const token = useSelector(selectToken);
   console.log("route", user);
-  if (!token || !user) {
+  if (!user) {
     return <Navigate to={"/login"} replace />;
   }
   if (!allowRole.includes(user.role)) {
