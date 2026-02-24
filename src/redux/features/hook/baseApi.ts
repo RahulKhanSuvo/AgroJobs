@@ -6,6 +6,10 @@ import {
   type FetchArgs,
 } from "@reduxjs/toolkit/query/react";
 import { logOut, setCredentials } from "../auth/authSlice";
+interface RefreshResponse {
+  accessToken: string;
+  success: boolean;
+}
 const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_API_BASE_URL,
   credentials: "include",
@@ -29,9 +33,11 @@ const baseQueryWithReauth = async (
       api,
       extraOptions,
     );
+    console.log(refreshResult);
     if (refreshResult?.data) {
+      const data = refreshResult.data as RefreshResponse;
       const user = (api.getState() as RootState).auth.user;
-      api.dispatch(setCredentials({ token: refreshResult.data, user }));
+      api.dispatch(setCredentials({ token: data.accessToken, user }));
       result = await baseQuery(args, api, extraOptions);
     } else {
       api.dispatch(logOut());
