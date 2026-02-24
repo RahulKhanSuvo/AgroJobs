@@ -26,6 +26,8 @@ import {
 } from "@/components/ui/sheet";
 import { ModeToggle } from "../ModeToggle";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 
 interface MenuItem {
   title: string;
@@ -82,6 +84,8 @@ const Navbar = ({
   },
   className,
 }: Navbar1Props) => {
+  const seletor = useSelector(selectCurrentUser);
+  console.log("current user", seletor);
   return (
     <section className={cn("py-4 bg-[#f2f2f2] dark:bg-background ", className)}>
       <div className="container mx-auto ">
