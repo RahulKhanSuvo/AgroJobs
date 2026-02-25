@@ -117,13 +117,20 @@ const Navbar = ({
             <div>
               <ModeToggle />
             </div>
-            <Button asChild variant="outline" size="sm">
-              <Link to={auth.login.url}>{auth.login.title}</Link>
-            </Button>
-            <Button className="rounded-2xl" asChild size="sm">
-              <Link to={auth.signup.url}>{auth.signup.title}</Link>
-            </Button>
-            <AvatarDropdown />
+            {!user ? (
+              <>
+                <Button asChild variant="outline" size="sm">
+                  <Link to={auth.login.url}>{auth.login.title}</Link>
+                </Button>
+                <Button className="rounded-2xl" asChild size="sm">
+                  <Link to={auth.signup.url}>{auth.signup.title}</Link>
+                </Button>
+              </>
+            ) : (
+              <>
+                <AvatarDropdown />
+              </>
+            )}
           </div>
         </nav>
 
