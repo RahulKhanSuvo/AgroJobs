@@ -7,7 +7,10 @@ import StepCard from "./StepCard";
 
 export default function StepSection() {
   return (
-    <Container variant={"wide"} className="py-24 flex flex-col gap-28">
+    <Container
+      variant={"wide"}
+      className="py-24 flex flex-col gap-28 overflow-hidden"
+    >
       <Stack align="center">
         <SectionTitle className="w-full md:w-3/4 lg:w-1/5 " align={"center"}>
           Easy steps to land your next job

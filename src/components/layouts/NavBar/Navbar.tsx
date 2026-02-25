@@ -28,6 +28,7 @@ import { ModeToggle } from "../ModeToggle";
 import { Link } from "react-router";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
+import { AvatarDropdown } from "@/components/ui/DropdownMenuAvatar";
 
 interface MenuItem {
   title: string;
@@ -84,8 +85,9 @@ const Navbar = ({
   },
   className,
 }: Navbar1Props) => {
-  const seletor = useSelector(selectCurrentUser);
-  console.log("current user", seletor);
+  const user = useSelector(selectCurrentUser);
+  console.log(user);
+
   return (
     <section className={cn("py-4 bg-[#f2f2f2] dark:bg-background ", className)}>
       <div className="container mx-auto ">
@@ -121,6 +123,7 @@ const Navbar = ({
             <Button className="rounded-2xl" asChild size="sm">
               <Link to={auth.signup.url}>{auth.signup.title}</Link>
             </Button>
+            <AvatarDropdown />
           </div>
         </nav>
 
