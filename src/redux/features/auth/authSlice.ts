@@ -1,6 +1,12 @@
 import type { RootState } from "@/redux/store";
 import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
+import type { User } from "./auth.type";
+interface AuthState {
+  user: User | null;
+  token: string | null;
+  isLoading: boolean;
+}
+const initialState: AuthState = {
   user: null,
   token: null,
   isLoading: true,
