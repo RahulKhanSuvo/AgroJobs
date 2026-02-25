@@ -30,7 +30,7 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "@/redux/features/auth/authSlice";
 import { AvatarDropdown } from "@/components/ui/DropdownMenuAvatar";
 
-interface MenuItem {
+export interface MenuItem {
   title: string;
   url: string;
   description?: string;
@@ -48,6 +48,7 @@ interface Navbar1Props {
     className?: string;
   };
   menu?: MenuItem[];
+  dropdownMenu?: MenuItem[];
   auth?: {
     login: {
       title: string;
@@ -77,6 +78,12 @@ const Navbar = ({
     {
       title: "Blog",
       url: "#",
+    },
+  ],
+  dropdownMenu = [
+    {
+      title: "Dashboard",
+      url: "/candidate",
     },
   ],
   auth = {
@@ -128,7 +135,7 @@ const Navbar = ({
               </>
             ) : (
               <>
-                <AvatarDropdown />
+                <AvatarDropdown menu={dropdownMenu} user={user} />
               </>
             )}
           </div>
