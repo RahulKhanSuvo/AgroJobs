@@ -17,13 +17,25 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { signUpSchema, type signUpFormData } from "./authSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSignUpMutation } from "@/redux/features/auth/auth.api";
+import { errorToast } from "@/utils/errorToast";
+import { toast } from "sonner";
 
 export default function SignUp() {
+  const [userSignUp, { isLoading }] = useSignUpMutation();
   const form = useForm<signUpFormData>({
     resolver: zodResolver(signUpSchema),
   });
-  const onSubmit = (data: signUpFormData) => {
+  const onSubmit = async (data: signUpFormData) => {
     console.log(data);
+    try {
+      const res = await userSignUp(data).unwrap();
+      console.log(res);
+      toast.success("user create successfully");
+      form.reset();
+    } catch (error) {
+      errorToast(error);
+    }
   };
   return (
     <div className="">
@@ -93,7 +105,7 @@ export default function SignUp() {
         </CardContent>
         <CardFooter>
           <Button type="submit" form="form-rhf-demo">
-            Sign up
+            {isLoading ? "Sign up..." : "Sign up"}
           </Button>
         </CardFooter>
       </Card>
