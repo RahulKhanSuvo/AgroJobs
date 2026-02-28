@@ -3,9 +3,9 @@ import LoginInfo from "./LoginInfo";
 
 export default function Login() {
   return (
-    <div className="flex border h-screen justify-between ">
+    <div className="flex  h-screen justify-between ">
       <LoginInfo />
-      <LoginForm className="w-fit border flex justify-center items-center" />
+      <LoginForm className="w-fit  flex justify-center items-center" />
     </div>
   );
 }

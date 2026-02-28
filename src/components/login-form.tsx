@@ -24,9 +24,10 @@ import { useLoginMutation } from "@/redux/features/auth/auth.api";
 import { errorToast } from "@/utils/errorToast";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "@/redux/features/auth/authSlice";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AtSign, Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
+import { Checkbox } from "./ui/checkbox";
 
 export function LoginForm({
   className,
@@ -54,18 +55,18 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="w-155.5 px-16 bg-background border-none">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold">
-            Login to your account
-          </CardTitle>
+          <CardTitle className="text-3xl font-bold">Login In</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Enter your credentials to access your account.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="email">Email Address</FieldLabel>
+                <FieldLabel className="uppercase text-[12px]" htmlFor="email">
+                  Email Address
+                </FieldLabel>
                 <div className="relative">
                   <Input
                     id="email"
@@ -83,15 +84,12 @@ export function LoginForm({
                 )}
               </Field>
               <Field>
-                <div className="flex items-center">
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
-                  <a
-                    href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </a>
-                </div>
+                <FieldLabel
+                  className="uppercase text-[12px]"
+                  htmlFor="password"
+                >
+                  Password
+                </FieldLabel>
                 <div className="relative">
                   <Input
                     id="password"
@@ -112,8 +110,19 @@ export function LoginForm({
                   <FieldError errors={[form.formState.errors.password]} />
                 )}
               </Field>
+              <div className=" flex justify-between">
+                <div className="flex gap-1.5 items-center">
+                  <Checkbox />
+                  <span className="text-slate-500 dark:text-slate-400">
+                    Remember me
+                  </span>
+                </div>
+                <Link className="text-sm" to={"/forget"}>
+                  Forget password?
+                </Link>
+              </div>
               <Field>
-                <Button type="submit">
+                <Button className="py-6" type="submit">
                   {isLoading ? "Logging..." : "Login"}
                 </Button>
                 <Button variant="outline" type="button">
