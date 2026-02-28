@@ -25,12 +25,15 @@ import { errorToast } from "@/utils/errorToast";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "@/redux/features/auth/authSlice";
 import { useNavigate } from "react-router";
+import { AtSign, Eye, EyeClosed } from "lucide-react";
+import { useState } from "react";
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
   const [signIn, { isLoading }] = useLoginMutation();
+  const [passwordShow, setPasswordShow] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const form = useForm<LoginFormData>({
@@ -49,9 +52,11 @@ export function LoginForm({
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="w-full sm:max-w-md mx-auto">
+      <Card className="w-155.5 px-16 bg-background border-none">
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle className="text-3xl font-bold">
+            Login to your account
+          </CardTitle>
           <CardDescription>
             Enter your email below to login to your account
           </CardDescription>
@@ -60,14 +65,19 @@ export function LoginForm({
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
-                <Input
-                  id="email"
-                  type="email"
-                  aria-invalid={!!form.formState.errors.email}
-                  placeholder="m@example.com"
-                  {...form.register("email")}
-                />
+                <FieldLabel htmlFor="email">Email Address</FieldLabel>
+                <div className="relative">
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
+                    className="border-0 border-b-2 rounded-none px-0 py-5 pr-10 focus-visible:ring-0 focus-visible:ring-offset-0"
+                    aria-invalid={!!form.formState.errors.email}
+                    {...form.register("email")}
+                  />
+
+                  <AtSign className="absolute right-2 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                </div>
                 {form.formState.errors.email && (
                   <FieldError errors={[form.formState.errors.email]} />
                 )}
@@ -82,12 +92,22 @@ export function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input
-                  id="password"
-                  type="password"
-                  aria-invalid={!!form.formState.errors.password}
-                  {...form.register("password")}
-                />
+                <div className="relative">
+                  <Input
+                    id="password"
+                    type={passwordShow ? "text" : "password"}
+                    placeholder="••••••••"
+                    className="border-0 border-b-2 rounded-none px-0 py-5 pr-10 focus-visible:ring-0 focus-visible:ring-offset-0"
+                    aria-invalid={!!form.formState.errors.password}
+                    {...form.register("password")}
+                  />
+                  <div
+                    onClick={() => setPasswordShow(!passwordShow)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground"
+                  >
+                    {passwordShow ? <Eye /> : <EyeClosed />}
+                  </div>
+                </div>
                 {form.formState.errors.password && (
                   <FieldError errors={[form.formState.errors.password]} />
                 )}
