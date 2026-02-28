@@ -4,8 +4,9 @@ import Login from "@/pages/auth/Login";
 import SignUp from "@/pages/auth/SignUp";
 import Error from "@/pages/Error";
 import Home from "@/pages/Home/Home";
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import ProtectedRoute from "./ProtectedRoute";
+import AuthLayout from "@/layouts/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -17,12 +18,19 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/sign-up",
-        element: <SignUp />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
+        path: "/auth",
+        element: <AuthLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to={"login"} replace />,
+          },
+          {
+            path: "login",
+            element: <Login />,
+          },
+          { path: "sign-up", element: <SignUp /> },
+        ],
       },
     ],
   },
