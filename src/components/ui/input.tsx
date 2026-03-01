@@ -15,7 +15,7 @@ function Input({ className, type, variant = "default", ...props }: InputProps) {
         variant === "default" &&
           "border border-input shadow-xs transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
         variant === "ghost" &&
-          "border-none shadow-none ring-0 focus-visible:ring-0 focus-visible:border-transparent px-0 h-auto",
+          "border-none shadow-none  py-0 ring-0 focus-visible:ring-0 focus-visible:border-transparent px-0 h-auto",
         className,
       )}
       {...props}
