@@ -5,7 +5,7 @@ export default function Login() {
   return (
     <div className="flex  h-screen justify-between ">
       <LoginInfo />
-      <LoginForm className="w-fit  flex justify-center items-center" />
+      <LoginForm className="w-fit  flex justify-center  shadow-none items-center" />
     </div>
   );
 }

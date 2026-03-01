@@ -10,7 +10,7 @@ export default function LoginInfo() {
       <div className="absolute inset-0 bg-linear-to-b from-[#050A30]/50 to-[#050A30]/85" />
 
       {/* Content */}
-      <div className="relative z-10 flex justify-between flex-col pl-11 h-full">
+      <div className="relative z-10 flex justify-between flex-col p-11 h-full">
         {/* Brand logo */}
         <div className="text-2xl font-bold text-white">JobNest</div>
 

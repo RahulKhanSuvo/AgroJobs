@@ -12,7 +12,7 @@ import type { User } from "@/redux/features/auth/auth.type";
 import type { MenuItem } from "../layouts/NavBar/Navbar";
 import { Link } from "react-router";
 interface AvatarDropdownProps {
-  user: User;
+  user?: User;
   menu: MenuItem[];
 }
 
@@ -24,11 +24,11 @@ export function AvatarDropdown({ user, menu }: AvatarDropdownProps) {
           <Button variant="ghost" size="icon" className="rounded-full">
             <Avatar>
               <AvatarImage src="https://github.com/shadcn.png" alt="shadcn" />
-              <AvatarFallback>{user.firstName}</AvatarFallback>
+              <AvatarFallback>{user?.firstName ?? "Rak"}</AvatarFallback>
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
-        <h4>{user.firstName}</h4>
+        <h4>{user?.firstName ?? "rahul"}</h4>
       </div>
 
       <DropdownMenuContent className="w-32">

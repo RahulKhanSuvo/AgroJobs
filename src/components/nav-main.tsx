@@ -1,0 +1,35 @@
+import { type LucideIcon } from "lucide-react";
+
+import {} from "@/components/ui/collapsible";
+import { SidebarGroup, SidebarMenu } from "@/components/ui/sidebar";
+import { SidebarLink } from "./SidebarLink";
+
+export function NavMain({
+  items,
+}: {
+  items: {
+    title: string;
+    url: string;
+    icon?: LucideIcon;
+    isActive?: boolean;
+    items?: {
+      title: string;
+      url: string;
+    }[];
+  }[];
+}) {
+  return (
+    <SidebarGroup>
+      <SidebarMenu>
+        {items.map((item) => (
+          <SidebarLink
+            key={item.title}
+            title={item.title}
+            url={item.url}
+            icon={item.icon}
+          />
+        ))}
+      </SidebarMenu>
+    </SidebarGroup>
+  );
+}
