@@ -7,7 +7,7 @@ import Home from "@/pages/Home/Home";
 import { createBrowserRouter, Navigate, Outlet } from "react-router";
 import ProtectedRoute from "./ProtectedRoute";
 import CandidateDashboard from "@/pages/Candidate/CandidateDashboard";
-import CandidateProfilePage from "@/pages/Candidate/CandidateProfilePage";
+import CandidateProfilePage from "@/pages/Candidate/Profile/CandidateProfilePage";
 import AppliedJob from "@/pages/Candidate/AppliedJob";
 import SaveJob from "@/pages/Candidate/SaveJob";
 import ProfileView from "@/pages/Candidate/ProfileView";

@@ -46,6 +46,7 @@
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-paragraph: var(--paragraph);
+    --color-border: var(--border-1)
 }
 
 :root {
@@ -82,6 +83,7 @@
     --sidebar-accent-foreground: oklch(0.922 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+    --border-1: #CBD5E1
 }
 
 .dark {
