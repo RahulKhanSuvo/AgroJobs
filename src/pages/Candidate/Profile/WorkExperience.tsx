@@ -8,8 +8,12 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from "@/components/ui/native-select";
+import TagInput from "@/components/common/TagInput";
+import { useState } from "react";
 
 export default function WorkExperience() {
+  const [skills, setSkills] = useState<string[]>([]);
+
   return (
     <div className="bg-white dark:bg-slate-950 rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
       {/* Header */}
@@ -34,14 +38,14 @@ export default function WorkExperience() {
 
       <div className="relative p-8 pl-14">
         {/* Timeline Dot & Line */}
-        <div className="absolute left-7 top-10 bottom-10 w-[1px] bg-slate-200"></div>
+        <div className="absolute left-7 top-10 bottom-10 w-px bg-slate-200"></div>
         <div className="absolute left-5.5 top-10 w-3 h-3 rounded-full bg-[#004A80] border-4 border-white shadow-sm ring-1 ring-slate-200"></div>
 
         <form className="space-y-6">
           <div className="grid grid-cols-2 gap-x-6 gap-y-8">
             {/* Job Title */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80] transition-all">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Job Title*
               </legend>
               <Input
@@ -53,7 +57,7 @@ export default function WorkExperience() {
 
             {/* Company Name */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80] transition-all">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Company Name*
               </legend>
               <Input
@@ -65,7 +69,7 @@ export default function WorkExperience() {
 
             {/* Industry */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Industry*
               </legend>
               <div className="relative">
@@ -80,7 +84,7 @@ export default function WorkExperience() {
 
             {/* Current Position */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Current Position*
               </legend>
               <div className="relative">
@@ -99,7 +103,7 @@ export default function WorkExperience() {
             </h4>
             <div className="grid grid-cols-3 gap-4">
               <fieldset className="relative border border-slate-200 bg-white rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                   Amount
                 </legend>
                 <Input
@@ -110,7 +114,7 @@ export default function WorkExperience() {
               </fieldset>
 
               <fieldset className="relative border border-slate-200 bg-white rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                   Type
                 </legend>
                 <div className="relative">
@@ -122,7 +126,7 @@ export default function WorkExperience() {
               </fieldset>
 
               <fieldset className="relative border border-slate-200 bg-white rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                   Currency
                 </legend>
                 <div className="relative">
@@ -138,7 +142,7 @@ export default function WorkExperience() {
           <div className="grid grid-cols-2 gap-x-6 gap-y-8 items-center">
             {/* Employment Type */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Employment Type*
               </legend>
               <div className="relative">
@@ -178,7 +182,7 @@ export default function WorkExperience() {
 
             {/* Dates */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Start Date*
               </legend>
               <Input
@@ -189,7 +193,7 @@ export default function WorkExperience() {
             </fieldset>
 
             <fieldset className="relative border border-slate-200 bg-slate-50/50 rounded-xl px-4 pb-1.5 pt-0.5">
-              <legend className="text-[11px] font-semibold text-slate-400 px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-slate-400 px-1.5 -ml-1">
                 End Date
               </legend>
               <Input
@@ -206,29 +210,12 @@ export default function WorkExperience() {
             <label className="text-sm font-bold text-slate-700">
               Skills Gained
             </label>
-            <div className="flex flex-wrap items-center gap-2 p-2 border border-slate-200 rounded-xl min-h-[56px]">
-              <span className="flex items-center gap-1.5 bg-[#EBF5FF] text-[#004A80] px-3 py-1.5 rounded-lg text-xs font-bold border border-[#D1E9FF]">
-                React.js{" "}
-                <button className="hover:text-red-500 transition-colors">
-                  ×
-                </button>
-              </span>
-              <span className="flex items-center gap-1.5 bg-[#EBF5FF] text-[#004A80] px-3 py-1.5 rounded-lg text-xs font-bold border border-[#D1E9FF]">
-                Team Leadership{" "}
-                <button className="hover:text-red-500 transition-colors">
-                  ×
-                </button>
-              </span>
-              <input
-                className="outline-none text-sm text-slate-400 ml-2 bg-transparent"
-                placeholder="Tag-style dropdown..."
-              />
-            </div>
+            <TagInput onChange={setSkills} value={skills} />
           </div>
 
           {/* Description */}
           <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-2 pt-0.5 focus-within:border-[#004A80]">
-            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
               Description
             </legend>
             <Textarea

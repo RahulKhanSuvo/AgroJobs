@@ -29,7 +29,7 @@ export default function Education() {
         <div className="border border-slate-100 rounded-2xl p-8 space-y-6">
           {/* School/University - Full Width */}
           <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80] transition-all">
-            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
               School/University*
             </legend>
             <Input
@@ -42,7 +42,7 @@ export default function Education() {
           <div className="grid grid-cols-2 gap-6">
             {/* Degree */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Degree*
               </legend>
               <Input
@@ -54,7 +54,7 @@ export default function Education() {
 
             {/* Graduation Year */}
             <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+              <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Graduation Year*
               </legend>
               <Input
@@ -67,7 +67,7 @@ export default function Education() {
 
           {/* Major / Field of Study - Full Width */}
           <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
               Major / Field of Study
             </legend>
             <Input
@@ -82,7 +82,7 @@ export default function Education() {
             <h4 className="text-sm font-bold text-slate-700">GPA</h4>
             <div className="grid grid-cols-2 gap-6">
               <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                   GPA
                 </legend>
                 <Input
@@ -93,7 +93,7 @@ export default function Education() {
               </fieldset>
 
               <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-1.5 pt-0.5 focus-within:border-[#004A80]">
-                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+                <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                   Max
                 </legend>
                 <Input

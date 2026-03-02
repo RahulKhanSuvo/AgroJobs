@@ -2,14 +2,16 @@ import React, { useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { User, Camera } from "lucide-react";
-import {
-  NativeSelect,
-  NativeSelectOption,
-} from "@/components/ui/native-select";
+// import {
+//   NativeSelect,
+//   NativeSelectOption,
+// } from "@/components/ui/native-select";
+import TagInput from "@/components/common/TagInput";
 
 export default function PersonalInfo() {
   const [image, setImage] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [roles, setRoles] = useState<string[]>([]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -140,39 +142,30 @@ export default function PersonalInfo() {
               <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
                 Years of experience*
               </legend>
-              <NativeSelect className="h-9  bg-pink-700  w-[100%] border-none p-0 text-slate-700 font-medium text-sm focus:ring-0 appearance-none cursor-pointer">
+              {/* <NativeSelect className="h-9  bg-pink-700  w-full border-none p-0 text-slate-700 font-medium text-sm focus:ring-0 appearance-none cursor-pointer">
                 <NativeSelectOption value="1">1+ Year</NativeSelectOption>
                 <NativeSelectOption value="5">5+ Years</NativeSelectOption>
                 <NativeSelectOption value="3">3+ Years</NativeSelectOption>
                 <NativeSelectOption value="3">5+ Years</NativeSelectOption>
-              </NativeSelect>
+              </NativeSelect> */}
+              <select className="w-full">
+                <option value="">one</option>
+                <option value="">two</option>
+              </select>
             </fieldset>
           </div>
 
           {/* Roles Multi-Select */}
-          <div className="space-y-3">
+          <div className="flex gap-4 flex-col">
             <label className="text-sm font-bold text-slate-700">
               Open to the following roles
             </label>
-            <div className="flex flex-wrap items-center gap-2 p-2 border border-slate-200 rounded-xl min-h-14">
-              <span className="flex items-center gap-1 bg-[#EBF5FF] text-[#004A80] px-3 py-1.5 rounded-lg text-xs font-bold border border-[#D1E9FF]">
-                Mobile Developer{" "}
-                <span className="ml-1 cursor-pointer opacity-60">×</span>
-              </span>
-              <span className="flex items-center gap-1 bg-[#EBF5FF] text-[#004A80] px-3 py-1.5 rounded-lg text-xs font-bold border border-[#D1E9FF]">
-                Backend Engineer{" "}
-                <span className="ml-1 cursor-pointer opacity-60">×</span>
-              </span>
-              <input
-                className="outline-none text-sm text-slate-400 ml-2 bg-transparent"
-                placeholder="Select roles..."
-              />
-            </div>
+            <TagInput onChange={setRoles} value={roles} />
           </div>
 
           {/* Bio Section */}
           <fieldset className="relative border border-slate-200 rounded-xl px-4 pb-2 pt-0.5 focus-within:border-[#004A80] transition-all">
-            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 ml-[-4px]">
+            <legend className="text-[11px] font-semibold text-[#004A80] px-1.5 -ml-1">
               Your bio
             </legend>
             <Textarea
