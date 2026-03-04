@@ -1,6 +1,14 @@
 import bgImage from "@assets/background/indoor-plants-studio.avif";
 
-export default function LoginInfo() {
+interface LoginInfoProps {
+  heading?: string;
+  subheading?: string;
+}
+
+export default function LoginInfo({
+  heading = "Welcome back",
+  subheading = "Sign in to continue your professional journey and discover new opportunities.",
+}: LoginInfoProps) {
   return (
     <div
       className="relative h-full bg-cover grow bg-center"
@@ -14,15 +22,14 @@ export default function LoginInfo() {
         {/* Brand logo */}
         <div className="text-2xl font-bold text-white">JobNest</div>
 
-        <div className="text-white flex flex-col gap-2  ">
-          <h3 className="text-6xl font-bold leading-tight">Welcome back</h3>
-          <p className="text-xl mt-3  text-[#EFF6FFCC]">
-            Sign in to continue your professional <br />
-            journey and discover new opportunities.
-          </p>
+        <div className="text-white flex flex-col gap-2">
+          <h3 className="text-6xl font-bold leading-tight">{heading}</h3>
+          <p className="text-xl mt-3 text-[#EFF6FFCC]">{subheading}</p>
         </div>
 
-        <p className="text-white/70">Trusted by industry leaders</p>
+        <p className="text-white/70 text-sm uppercase tracking-widest">
+          Trusted by industry leaders
+        </p>
       </div>
     </div>
   );
