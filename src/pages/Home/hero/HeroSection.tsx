@@ -20,12 +20,15 @@ export default function HeroSection() {
             <h1 className="text-6xl font-bold text-white">
               Get hired by <br /> the popular teams.
             </h1>
-            <p className="text-xl text-white">
+            <p className="text-xl text-white font-lato">
               Explore high-paying jobs, connect with top recruiters, and build
               the career you deserve. Simple, fast, and effective.
             </p>
           </div>
           <HeroSearch />
+          <p className="text-white">
+            <span className="font-bold">10,000+</span> Jobs already posted
+          </p>
         </div>
       </Container>
     </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Bell, Check, X } from "lucide-react";
 import {
   Popover,
