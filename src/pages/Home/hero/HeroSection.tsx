@@ -15,7 +15,7 @@ export default function HeroSection() {
         className="flex justify-between h-[75vh] gap-2.5 z-20 relative"
       >
         {/* left */}
-        <div className="w-2/3 flex flex-col justify-center gap-8 ">
+        <div className="w-2/3 flex flex-col justify-center gap-4 ">
           <div className="flex flex-col    gap-7 justify-center w-[80%]">
             <h1 className="text-6xl font-bold text-white">
               Get hired by <br /> the popular teams.
