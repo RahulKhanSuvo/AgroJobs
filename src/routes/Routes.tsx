@@ -5,7 +5,7 @@ import SignUp from "@/pages/auth/SignUp";
 import Error from "@/pages/Error";
 import Home from "@/pages/Home/Home";
 import { createBrowserRouter, Navigate, Outlet } from "react-router";
-import ProtectedRoute from "./ProtectedRoute";
+// import ProtectedRoute from "./ProtectedRoute";
 import CandidateDashboard from "@/pages/Candidate/CandidateDashboard";
 import CandidateProfilePage from "@/pages/Candidate/Profile/CandidateProfilePage";
 import AppliedJob from "@/pages/Candidate/AppliedJob";
@@ -55,9 +55,9 @@ const router = createBrowserRouter([
   {
     path: "/candidate",
     element: (
-      <ProtectedRoute allowRole={["USER"]}>
-        <CandidateLayout />
-      </ProtectedRoute>
+      // <ProtectedRoute allowRole={["USER"]}>
+      <CandidateLayout />
+      // </ProtectedRoute>
     ),
     children: [
       {
