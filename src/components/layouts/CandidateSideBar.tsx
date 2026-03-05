@@ -3,7 +3,7 @@ import { candidateSidebarData } from "./sidebarData";
 
 export default function CandidateSideBar() {
   return (
-    <aside className="py-6 px-5 w-[280px]">
+    <aside className="py-6 px-5 w-[280px] h-[calc(100vh-65px)] bg-white sticky top-0 z-50">
       <ul className="space-y-1">
         {candidateSidebarData.map((item, index) => (
           <li key={index}>
