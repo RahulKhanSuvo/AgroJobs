@@ -12,10 +12,10 @@ export default function CandidateLayout() {
           <DashboardNavbar />
         </div>
         {/* Right Section */}
-        <main className="flex overflow-y-auto h-[calc(100vh-64px)] bg-[#f5f7f9]">
+        <main className="flex overflow-y-auto h-[calc(100vh-64px)]">
           <ScrollRestoration getKey={(location) => location.pathname} />
           <CandidateSideBar />
-          <div className="flex-1 p-4">
+          <div className="flex-1 p-4 bg-[#F5F5F5] overflow-y-auto">
             <Outlet />
           </div>
         </main>

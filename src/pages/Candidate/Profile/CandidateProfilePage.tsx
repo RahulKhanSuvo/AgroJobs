@@ -1,15 +1,11 @@
-import ContactLinks from "./ContactLinks";
-import Education from "./Education";
-import PersonalInfo from "./PersonalInfo";
-import WorkExperience from "./WorkExperience";
+import InfoHeader from "./InfoHeader";
+import DashboardTitle from "@/components/common/DashboardTitle";
 
 export default function CandidateProfilePage() {
   return (
     <div className="space-y-7">
-      <PersonalInfo />
-      <WorkExperience />
-      <Education />
-      <ContactLinks />
+      <DashboardTitle>Profile</DashboardTitle>
+      <InfoHeader />
     </div>
   );
 }
