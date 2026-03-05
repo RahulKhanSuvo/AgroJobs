@@ -1,9 +1,6 @@
-"use client";
-
 import * as React from "react";
 import {
   Bookmark,
-  Briefcase,
   Building,
   ChartBar,
   FileCheck,
@@ -20,7 +17,6 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
 const data = {
@@ -71,21 +67,6 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <div className="flex items-center gap-2 px-4 py-6">
-          <div className="flex size-10 items-center justify-center rounded-xl bg-[#004a8c] text-white shadow-lg shadow-blue-900/10">
-            <Briefcase className="size-6" />
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span className="font-black text-2xl tracking-tighter text-[#004a8c]">
-              atB
-            </span>
-            <span className="font-bold text-2xl tracking-tight text-slate-500">
-              Jobs
-            </span>
-          </div>
-        </div>
-      </SidebarHeader>
       <SidebarContent className="scrollbar-hide px-2">
         <CandidateProfileCard />
         <NavMain items={data.navMain} />
