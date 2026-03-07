@@ -23,6 +23,7 @@ import ProfileEdit from "@/pages/Candidate/Profile/ProfileEdit";
 import MyCV from "@/pages/Candidate/MyCv/MyCV";
 import RecruiterProfileEdit from "@/pages/Recruiter/Profile/RecruiterProfileEdit";
 import PostJob from "@/pages/Recruiter/Profile/PostJob";
+import AllApplicants from "@/pages/Recruiter/Applicants/AllApplicants";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -150,7 +151,7 @@ const router = createBrowserRouter([
       },
       {
         path: "applicants",
-        element: <div className="p-6">All Applicants Page</div>,
+        element: <AllApplicants />,
       },
       {
         path: "profile",
