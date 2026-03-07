@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import profileBanner from "@assets/logo/profile-icon-png-898.png";
+import { Link } from "react-router";
 
 export default function InfoHeader() {
   return (
@@ -29,12 +30,14 @@ export default function InfoHeader() {
           </div>
         </div>
       </div>
-      <Button
-        className="rounded w-[185px] h-[48px] border-primary"
-        variant="outline"
-      >
-        Edit Profile
-      </Button>
+      <Link to={"edit"}>
+        <Button
+          className="rounded w-[185px] h-[48px] border-primary"
+          variant="outline"
+        >
+          Edit Profile
+        </Button>
+      </Link>
     </div>
   );
 }

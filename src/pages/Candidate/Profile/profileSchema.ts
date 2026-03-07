@@ -11,6 +11,27 @@ export const profileSchema = z.object({
   language: z.string().optional(),
   age: z.string().optional(),
   experience: z.string().optional(),
+  educationList: z
+    .array(
+      z.object({
+        academy: z.string().min(1, "Academy is required"),
+        title: z.string().min(1, "Title is required"),
+        startYear: z.string().min(1, "Start year is required"),
+        endYear: z.string().min(1, "End year is required"),
+        description: z.string().optional(),
+      }),
+    )
+    .optional(),
+  experienceList: z
+    .array(
+      z.object({
+        company: z.string().min(1, "Company is required"),
+        startYear: z.string().min(1, "Start year is required"),
+        endYear: z.string().min(1, "End year is required"),
+        description: z.string().optional(),
+      }),
+    )
+    .optional(),
   skills: z.array(z.string()).optional(),
   aboutMe: z.string().optional(),
   facebook: z.string().url("Invalid URL").or(z.literal("")).optional(),

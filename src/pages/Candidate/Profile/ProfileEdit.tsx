@@ -28,12 +28,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useForm, Controller } from "react-hook-form";
+import { useNavigate } from "react-router";
+import { ArrowLeft, Edit2, PlusCircle, Trash2 } from "lucide-react";
+import { useForm, Controller, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { profileSchema, type ProfileFormData } from "./profileSchema";
 import { toast } from "sonner";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ProfileEdit() {
+  const navigate = useNavigate();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const form = useForm<ProfileFormData>({
     resolver: zodResolver(profileSchema),
@@ -56,7 +60,31 @@ export default function ProfileEdit() {
       pinterest: "",
       instagram: "",
       youtube: "",
+      educationList: [
+        { academy: "", title: "", startYear: "", endYear: "", description: "" },
+      ],
+      experienceList: [
+        { company: "", startYear: "", endYear: "", description: "" },
+      ],
     },
+  });
+
+  const {
+    fields: educationFields,
+    append: appendEducation,
+    remove: removeEducation,
+  } = useFieldArray({
+    control: form.control,
+    name: "educationList",
+  });
+
+  const {
+    fields: experienceFields,
+    append: appendExperience,
+    remove: removeExperience,
+  } = useFieldArray({
+    control: form.control,
+    name: "experienceList",
   });
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,9 +102,19 @@ export default function ProfileEdit() {
 
   return (
     <div className="space-y-6">
-      <DashboardTitle>Profile Edit</DashboardTitle>
+      <div className="flex items-center gap-4">
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          onClick={() => navigate(-1)}
+          className="rounded-full bg-white dark:bg-input/30"
+        >
+          <ArrowLeft className="size-5" />
+        </Button>
+        <DashboardTitle>Profile Edit</DashboardTitle>
+      </div>
       <CommonWrapper className="p-7">
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* user photo*/}
           <div className="flex gap-4 pb-7 border-b ">
             <div className="size-28 ">
@@ -105,7 +143,7 @@ export default function ProfileEdit() {
           </div>
 
           {/* usr info form */}
-          <div className="space-y-6 pt-6">
+          <div className="space-y-6">
             <SectionTitle size={"sm"}>Information</SectionTitle>
             <FieldGroup className="grid grid-cols-2 gap-6">
               <Field>
@@ -312,6 +350,192 @@ export default function ProfileEdit() {
             </FieldGroup>
           </div>
 
+          {/* Education list */}
+          <div className="space-y-6 pt-4 border-t">
+            <SectionTitle size={"sm"}>Education</SectionTitle>
+            <div className="space-y-8">
+              {educationFields.map((field, index) => (
+                <div key={field.id} className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-[#F5F5F5] dark:bg-[#222222]">
+                    <span className="font-bold">Education {index + 1}</span>
+                    <div className="flex gap-2">
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon-sm"
+                        onClick={() => removeEducation(index)}
+                        className="text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                      >
+                        <Trash2 className="size-4" />
+                      </Button>
+                      <Button type="button" variant="ghost" size="icon-sm">
+                        <Edit2 className="size-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  <FieldGroup className="grid grid-cols-1 gap-6">
+                    <Field>
+                      <FieldLabel className="font-bold">Academy</FieldLabel>
+                      <Input
+                        placeholder="Fine Arts University"
+                        className="h-11 border-none shadow-none"
+                        variant="withBg"
+                        {...form.register(`educationList.${index}.academy`)}
+                      />
+                    </Field>
+                    <Field>
+                      <FieldLabel className="font-bold">Title</FieldLabel>
+                      <Input
+                        placeholder="Design"
+                        className="h-11 border-none shadow-none"
+                        variant="withBg"
+                        {...form.register(`educationList.${index}.title`)}
+                      />
+                    </Field>
+                    <div className="grid grid-cols-2 gap-6">
+                      <Field>
+                        <FieldLabel className="font-bold">
+                          Dates Attended
+                        </FieldLabel>
+                        <Input
+                          placeholder="2012"
+                          className="h-11 border-none shadow-none"
+                          variant="withBg"
+                          {...form.register(`educationList.${index}.startYear`)}
+                        />
+                      </Field>
+                      <Field>
+                        <FieldLabel className="font-bold">
+                          Dates Attended
+                        </FieldLabel>
+                        <Input
+                          placeholder="2014"
+                          className="h-11 border-none shadow-none"
+                          variant="withBg"
+                          {...form.register(`educationList.${index}.endYear`)}
+                        />
+                      </Field>
+                    </div>
+                    <Field>
+                      <FieldLabel className="font-bold">Description</FieldLabel>
+                      <Textarea
+                        placeholder="Write something..."
+                        className="min-h-32 border-none shadow-none resize-none bg-[#F5F5F5] dark:bg-[#222222]"
+                        {...form.register(`educationList.${index}.description`)}
+                      />
+                    </Field>
+                  </FieldGroup>
+                </div>
+              ))}
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full flex items-center justify-center gap-2 py-6 border-dashed border-2 hover:bg-slate-50 transition-colors"
+                onClick={() =>
+                  appendEducation({
+                    academy: "",
+                    title: "",
+                    startYear: "",
+                    endYear: "",
+                    description: "",
+                  })
+                }
+              >
+                <PlusCircle className="size-5" />
+                <span>Add Another Education</span>
+              </Button>
+            </div>
+          </div>
+
+          {/* Experience list */}
+          <div className="space-y-6 pt-4 border-t">
+            <SectionTitle size={"sm"}>Experience</SectionTitle>
+            <div className="space-y-8">
+              {experienceFields.map((field, index) => (
+                <div key={field.id} className="space-y-6">
+                  <div className="flex items-center justify-between p-4 bg-[#F5F5F5] dark:bg-[#222222]">
+                    <span className="font-bold">Experience {index + 1}</span>
+                    <div className="flex gap-2">
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon-sm"
+                        onClick={() => removeExperience(index)}
+                        className="text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                      >
+                        <Trash2 className="size-4" />
+                      </Button>
+                      <Button type="button" variant="ghost" size="icon-sm">
+                        <Edit2 className="size-4" />
+                      </Button>
+                    </div>
+                  </div>
+                  <FieldGroup className="grid grid-cols-1 gap-6">
+                    <Field>
+                      <FieldLabel className="font-bold">Company</FieldLabel>
+                      <Input
+                        placeholder="Avitex Inc"
+                        className="h-11 border-none shadow-none"
+                        variant="withBg"
+                        {...form.register(`experienceList.${index}.company`)}
+                      />
+                    </Field>
+                    <div className="grid grid-cols-2 gap-6">
+                      <Field>
+                        <FieldLabel className="font-bold">Dates</FieldLabel>
+                        <Input
+                          placeholder="2012"
+                          className="h-11 border-none shadow-none"
+                          variant="withBg"
+                          {...form.register(
+                            `experienceList.${index}.startYear`,
+                          )}
+                        />
+                      </Field>
+                      <Field>
+                        <FieldLabel className="font-bold">
+                          Dates Attended
+                        </FieldLabel>
+                        <Input
+                          placeholder="2014"
+                          className="h-11 border-none shadow-none"
+                          variant="withBg"
+                          {...form.register(`experienceList.${index}.endYear`)}
+                        />
+                      </Field>
+                    </div>
+                    <Field>
+                      <FieldLabel className="font-bold">Description</FieldLabel>
+                      <Textarea
+                        placeholder="Write something..."
+                        className="min-h-32 border-none shadow-none resize-none bg-[#F5F5F5] dark:bg-[#222222]"
+                        {...form.register(
+                          `experienceList.${index}.description`,
+                        )}
+                      />
+                    </Field>
+                  </FieldGroup>
+                </div>
+              ))}
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full flex items-center justify-center gap-2 py-6 border-dashed border-2 hover:bg-slate-50 transition-colors"
+                onClick={() =>
+                  appendExperience({
+                    company: "",
+                    startYear: "",
+                    endYear: "",
+                    description: "",
+                  })
+                }
+              >
+                <PlusCircle className="size-5" />
+                <span>Add Another Experience</span>
+              </Button>
+            </div>
+          </div>
+
           {/* about me */}
           <div className="space-y-4 pt-4 border-t">
             <SectionTitle size={"sm"}>About Me</SectionTitle>
@@ -329,7 +553,7 @@ export default function ProfileEdit() {
           </div>
 
           {/* social network */}
-          <div className="space-y-6 pt-6 border-t mt-6">
+          <div className="space-y-6 pt-6 border-t">
             <SectionTitle size={"sm"}>Social Network</SectionTitle>
             <div className="grid grid-cols-2 gap-6">
               {[
