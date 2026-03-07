@@ -11,7 +11,7 @@ export default function Error() {
       <div className="text-center relative z-10 space-y-8 max-w-2xl mx-auto">
         {/* Floating 404 Text */}
         <div className="relative inline-block group">
-          <h1 className="text-9xl md:text-[12rem] font-black text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/40 select-none animate-float tracking-tighter">
+          <h1 className="text-9xl md:text-[12rem] font-black text-transparent bg-clip-text bg-linear-to-b from-primary to-primary/40 select-none animate-float tracking-tighter">
             404
           </h1>
           {/* Subtle reflection/shadow underneath */}

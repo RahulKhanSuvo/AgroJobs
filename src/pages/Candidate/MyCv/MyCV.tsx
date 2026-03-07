@@ -36,9 +36,9 @@ const ResumeCard = ({
   onSetPrimary: (id: number) => void;
 }) => {
   return (
-    <div className="bg-white dark:bg-[#1A1A1A] border border-border rounded-xl p-5 space-y-4 hover:shadow-lg transition-all group flex flex-col h-full">
+    <div className="bg-white dark:bg-[#1A1A1A] border border-border  p-5 space-y-4 hover:shadow-lg transition-all group flex flex-col h-full">
       {/* Review/Preview area */}
-      <div className="h-48 bg-[#F8F9FA] dark:bg-[#222222] rounded-lg flex items-center justify-center relative overflow-hidden flex-shrink-0">
+      <div className="h-48 bg-[#F8F9FA] dark:bg-[#222222] rounded-lg flex items-center justify-center relative overflow-hidden shrink-0">
         <FileText className="size-16 text-primary/20" />
 
         {/* Badges */}
@@ -57,9 +57,9 @@ const ResumeCard = ({
       </div>
 
       {/* Info */}
-      <div className="flex-grow space-y-1">
+      <div className="grow space-y-1">
         <div className="flex items-start justify-between">
-          <h3 className="font-bold text-[15px] line-clamp-1 flex-grow pr-2">
+          <h3 className="font-bold text-[15px] line-clamp-1 grow pr-2">
             {resume.title}
           </h3>
           <DropdownMenu>
@@ -200,10 +200,6 @@ export default function MyCV() {
       <DashboardTitle>My CV</DashboardTitle>
       <CommonWrapper className="p-7">
         <div className="space-y-8">
-          <div className="space-y-1">
-            <h2 className="text-xl font-bold">Your Resumes</h2>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             {resumes.map((resume) => (
               <div key={resume.id} className="h-full">
