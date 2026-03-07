@@ -116,15 +116,22 @@ export default function ProfileEdit() {
                   type="text"
                 />
               </Field>
-              <Field>
-                <FieldLabel className="font-bold">Nationality</FieldLabel>
-                <Input
-                  placeholder="Enter your nationality"
-                  className="h-11"
-                  variant="withBg"
-                  type="text"
-                />
-              </Field>
+              <Select>
+                <SelectGroup className="w-full flex flex-col gap-3">
+                  <SelectLabel className="font-bold">Language</SelectLabel>
+                  <SelectTrigger className="w-full rounded-none shadow-none bg-[#F5F5F5] dark:bg-[#222222]">
+                    <SelectValue
+                      className=""
+                      placeholder="Select your language"
+                    />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-none" position="popper">
+                    <SelectItem value="english">English</SelectItem>
+                    <SelectItem value="hindi">Hindi</SelectItem>
+                    <SelectItem value="bengali">Bengali</SelectItem>
+                  </SelectContent>
+                </SelectGroup>
+              </Select>
               <Select>
                 <SelectGroup className="w-full flex flex-col gap-3">
                   <SelectLabel className="font-bold">Age</SelectLabel>
