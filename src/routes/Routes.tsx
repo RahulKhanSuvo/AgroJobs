@@ -20,6 +20,7 @@ import RecruiterProfilePage from "@/pages/Recruiter/Profile/RecruiterProfilePage
 import RecruiterSettings from "@/pages/Recruiter/RecruiterSettings";
 import MyJobs from "@/pages/Recruiter/MyJobs";
 import ProfileEdit from "@/pages/Candidate/Profile/ProfileEdit";
+import MyCV from "@/pages/Candidate/MyCv/MyCV";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "profile/edit",
         element: <ProfileEdit />,
+      },
+      {
+        path: "my-cv",
+        element: <MyCV />,
       },
       {
         path: "applied-job",
