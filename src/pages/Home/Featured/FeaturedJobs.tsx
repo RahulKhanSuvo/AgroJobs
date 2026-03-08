@@ -1,19 +1,106 @@
 import Container from "@/components/common/Container";
-import Paragraph from "@/components/common/Paragraph";
-import SectionTitle from "@/components/common/SectionTitle";
-import Stack from "@/components/common/Stack";
+import FeaturedJobsHeader from "./components/FeaturedJobsHeader";
+import FeaturedJobCard, { type Job } from "./components/FeaturedJobCard";
+import { MoveRight } from "lucide-react";
+
+const mockFeaturedJobs: Job[] = [
+  {
+    id: 1,
+    company: "Rockstar Games New York",
+    logo: "https://api.dicebear.com/7.x/initials/svg?seed=RG",
+    title: "Senior UI/UX Designer",
+    location: "Las Vegas, NV 89107, USA",
+    postedAt: "2 days ago",
+    salary: "$1,000 - $2,000",
+    deadline: "2 days left to apply",
+    tags: ["Accounting", "Sales & Marketing", "UI UX Design"],
+    rating: 4,
+    isVerified: true,
+  },
+  {
+    id: 2,
+    company: "Rockstar Games New York",
+    logo: "https://api.dicebear.com/7.x/initials/svg?seed=P",
+    title: "Project Manager",
+    location: "Las Vegas, NV 89107, USA",
+    postedAt: "2 days ago",
+    salary: "$1,000 - $1,300",
+    deadline: "5 days left to apply",
+    tags: ["UI UX Design", "Accounting"],
+    rating: 4,
+    isVerified: true,
+  },
+  {
+    id: 3,
+    company: "Rockstar Games New York",
+    logo: "https://api.dicebear.com/7.x/initials/svg?seed=F",
+    title: "Full Stack Development",
+    location: "Las Vegas, NV 89107, USA",
+    postedAt: "2 days ago",
+    salary: "$2,000 - $2,400",
+    deadline: "6 days left to apply",
+    tags: ["UI UX Design", "Project Manager", "Accounting"],
+    rating: 4,
+    isVerified: true,
+  },
+  {
+    id: 4,
+    company: "Rockstar Games New York",
+    logo: "https://api.dicebear.com/7.x/initials/svg?seed=S",
+    title: "Social Media Marketing",
+    location: "Las Vegas, NV 89107, USA",
+    postedAt: "2 days ago",
+    salary: "$1,100 - $1,500",
+    deadline: "7 days left to apply",
+    tags: ["UI UX Design", "Project Manager"],
+    rating: 4,
+    isVerified: true,
+  },
+  {
+    id: 5,
+    company: "Rockstar Games New York",
+    logo: "https://api.dicebear.com/7.x/initials/svg?seed=H",
+    title: "Senior DevOps Engineer",
+    location: "Las Vegas, NV 89107, USA",
+    postedAt: "2 days ago",
+    salary: "$1,500 - $1,800",
+    deadline: "3 days left to apply",
+    tags: ["Sales & Marketing", "Accounting"],
+    rating: 4,
+    isVerified: true,
+  },
+  {
+    id: 6,
+    company: "Rockstar Games New York",
+    logo: "https://api.dicebear.com/7.x/initials/svg?seed=M",
+    title: "HR Administration",
+    location: "Las Vegas, NV 89107, USA",
+    postedAt: "2 days ago",
+    salary: "$1,100 - $1,400",
+    deadline: "5 days left to apply",
+    tags: ["UI UX Design", "Accounting"],
+    rating: 4,
+    isVerified: true,
+  },
+];
 
 export default function FeaturedJobs() {
   return (
-    <Container className="py-14">
-      <Stack align="center" gap="sm">
-        <SectionTitle>Featured Jobs</SectionTitle>
-        <Paragraph>
-          Find your next job with ease. Browse featured jobs and connect with
-          top recruiters.
-        </Paragraph>
-      </Stack>
-      <div className="grid grid-cols-3 gap-3.5"></div>
+    <Container className="py-20">
+      <FeaturedJobsHeader />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        {mockFeaturedJobs.map((job) => (
+          <FeaturedJobCard key={job.id} job={job} />
+        ))}
+      </div>
+
+      <div className="mt-12 text-center">
+        <button className="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-emerald-500/20 dark:border-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-black hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500 dark:hover:text-white transition-all duration-300 group shadow-lg shadow-emerald-500/5 active:scale-95">
+          See More Jobs
+          <MoveRight className="size-5 group-hover:translate-x-1 transition-transform" />
+        </button>
+      </div>
     </Container>
   );
 }

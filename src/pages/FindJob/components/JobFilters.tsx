@@ -11,7 +11,7 @@ import { Search, MapPin } from "lucide-react";
 
 export default function JobFilters() {
   return (
-    <div className="space-y-6 w-full shrink-0 p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-sm transition-colors">
+    <div className="space-y-6 w-full shrink-0 p-6 bg-[#F5F5F5] dark:bg-slate-900 border border-slate-100 dark:border-slate-800 transition-colors">
       <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight -mb-2">
         Filters
       </h3>

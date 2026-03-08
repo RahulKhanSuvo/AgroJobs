@@ -7,8 +7,14 @@ import {
 } from "@/components/ui/select";
 import { LayoutGrid, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export default function JobHeader() {
+interface JobHeaderProps {
+  layout: "grid" | "list";
+  setLayout: (layout: "grid" | "list") => void;
+}
+
+export default function JobHeader({ layout, setLayout }: JobHeaderProps) {
   return (
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 py-2">
       <div className="flex items-center gap-4">
@@ -16,14 +22,26 @@ export default function JobHeader() {
           <Button
             variant="ghost"
             size="icon"
-            className="size-8 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-500 shadow-sm"
+            onClick={() => setLayout("grid")}
+            className={cn(
+              "size-8 rounded-lg transition-all duration-300",
+              layout === "grid"
+                ? "bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-500 shadow-sm"
+                : "text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-500",
+            )}
           >
             <LayoutGrid className="size-4" />
           </Button>
           <Button
             variant="ghost"
             size="icon"
-            className="size-8 rounded-lg text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+            onClick={() => setLayout("list")}
+            className={cn(
+              "size-8 rounded-lg transition-all duration-300",
+              layout === "list"
+                ? "bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-500 shadow-sm"
+                : "text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-500",
+            )}
           >
             <List className="size-4" />
           </Button>

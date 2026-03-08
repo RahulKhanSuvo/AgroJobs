@@ -76,7 +76,11 @@ const mockJobs: Job[] = [
   },
 ];
 
-export default function JobList() {
+interface JobListProps {
+  layout: "grid" | "list";
+}
+
+export default function JobList({ layout }: JobListProps) {
   const container: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,11 +105,15 @@ export default function JobList() {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+      className={
+        layout === "grid"
+          ? "grid grid-cols-1 lg:grid-cols-2 gap-6"
+          : "flex flex-col gap-4"
+      }
     >
       {mockJobs.map((job) => (
         <motion.div key={job.id} variants={item}>
-          <JobCard job={job} />
+          <JobCard job={job} layout={layout} />
         </motion.div>
       ))}
     </motion.div>

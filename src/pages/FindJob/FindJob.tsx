@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Container from "@/components/common/Container";
 import JobFilters from "./components/JobFilters";
 import JobHeader from "./components/JobHeader";
@@ -5,8 +6,10 @@ import JobList from "./components/JobList";
 import Pagination from "./components/Pagination";
 
 export default function FindJob() {
+  const [layout, setLayout] = useState<"grid" | "list">("grid");
+
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen py-10 transition-colors duration-300">
+    <div className="bg-white dark:bg-slate-950 min-h-screen py-10 transition-colors duration-300">
       <Container>
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}
@@ -16,8 +19,8 @@ export default function FindJob() {
 
           {/* Main Content */}
           <main className="flex-1 space-y-4">
-            <JobHeader />
-            <JobList />
+            <JobHeader layout={layout} setLayout={setLayout} />
+            <JobList layout={layout} />
             <Pagination />
           </main>
         </div>

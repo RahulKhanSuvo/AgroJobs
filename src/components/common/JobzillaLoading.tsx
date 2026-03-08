@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function JobzillaLoading() {
   return (
-    <div className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-slate-900 overflow-hidden">
+    <div className="fixed inset-0 z-9999 flex flex-col items-center justify-center   dark:bg-slate-900 overflow-hidden">
       {/* Background ambient glow */}
       <motion.div
         className="absolute w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px]"
@@ -109,7 +109,8 @@ export default function JobzillaLoading() {
               ease: "easeInOut",
             }}
           >
-            Job<span className="text-emerald-500">Zilla</span>
+            <span className="text-slate-900 dark:text-white">Job</span>{" "}
+            <span className="text-emerald-500">Zilla</span>
           </motion.div>
           <div className="flex gap-1">
             {[0, 1, 2].map((i) => (
