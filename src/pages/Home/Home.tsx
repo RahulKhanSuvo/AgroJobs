@@ -1,7 +1,7 @@
 import HeroSection from "./hero/HeroSection";
 import Sponsor from "./Sponsor";
-import StepSection from "./Steps/StepSection";
 import FeaturedJobs from "./Featured/FeaturedJobs";
+import WhyJobZilla from "./Why/WhyJobZilla";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <HeroSection />
       <FeaturedJobs />
       <Sponsor />
-      <StepSection />
+      <WhyJobZilla />
     </>
   );
 }
