@@ -6,7 +6,7 @@ import JobList from "./components/JobList";
 import Pagination from "./components/Pagination";
 
 export default function FindJob() {
-  const [layout, setLayout] = useState<"grid" | "list">("grid");
+  const [layout, setLayout] = useState<"grid" | "list">("list");
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen py-10 transition-colors duration-300">

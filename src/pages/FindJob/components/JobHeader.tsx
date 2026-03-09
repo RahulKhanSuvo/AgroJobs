@@ -23,19 +23,6 @@ export default function JobHeader({ layout, setLayout }: JobHeaderProps) {
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setLayout("grid")}
-            className={cn(
-              "size-9 rounded-none transition-all duration-300",
-              layout === "grid"
-                ? "bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-500 "
-                : "text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-500",
-            )}
-          >
-            <BiSolidGridAlt />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
             onClick={() => setLayout("list")}
             className={cn(
               "size-9 rounded-none  transition-all duration-300",
@@ -45,6 +32,19 @@ export default function JobHeader({ layout, setLayout }: JobHeaderProps) {
             )}
           >
             <FaList />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setLayout("grid")}
+            className={cn(
+              "size-9 rounded-none transition-all duration-300",
+              layout === "grid"
+                ? "bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-500 "
+                : "text-slate-400 dark:text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-500",
+            )}
+          >
+            <BiSolidGridAlt />
           </Button>
         </div>
         <p className="text-sm font-bold text-slate-500 dark:text-slate-400">

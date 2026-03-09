@@ -1,8 +1,8 @@
 import Container from "@/components/common/Container";
 import FeaturedJobsHeader from "./components/FeaturedJobsHeader";
-import FeaturedJobCard, { type Job } from "./components/FeaturedJobCard";
 import { MoveRight } from "lucide-react";
 import demoLogo from "@assets/logos/profile-1.jpg";
+import JobCard, { type Job } from "./components/JobCard";
 
 const mockFeaturedJobs: Job[] = [
   {
@@ -92,7 +92,7 @@ export default function FeaturedJobs() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         {mockFeaturedJobs.map((job) => (
-          <FeaturedJobCard key={job.id} job={job} />
+          <JobCard key={job.id} job={job} />
         ))}
       </div>
 
