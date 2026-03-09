@@ -10,11 +10,12 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import demoImage from "@assets/logos/profile-1.jpg";
+import Container from "@/components/common/Container";
 
 export default function JobHeader() {
   return (
-    <div className="bg-white sticky top-20 z-20 dark:bg-slate-900 py-8 border-b border-slate-200 dark:border-slate-800 transition-colors">
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+    <div className="bg-white sticky top-20 z-20 dark:bg-slate-900">
+      <Container className="flex flex-col lg:flex-row lg:items-center justify-between gap-10 border-b border-slate-200 dark:border-slate-800 transition-colors py-8">
         {/* Left: Company Logo & Job Title */}
         <div className="flex flex-col md:flex-row items-start gap-6">
           <div className="size-24 bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 transition-all">
@@ -99,7 +100,7 @@ export default function JobHeader() {
             </p>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
