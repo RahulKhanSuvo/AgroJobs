@@ -94,7 +94,7 @@ export default function JobSidebar() {
                 key={i}
                 variant="outline"
                 size="icon"
-                className="size-10 rounded-xl bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-900/20 shadow-sm transition-all hover:-translate-y-1"
+                className="size-10 rounded-full bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-900/20 transition-all hover:-translate-y-1"
               >
                 <Icon className="size-4" />
               </Button>
