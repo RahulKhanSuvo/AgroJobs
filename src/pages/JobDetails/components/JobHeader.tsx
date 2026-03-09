@@ -16,23 +16,23 @@ export default function JobHeader() {
     <div className="bg-white dark:bg-slate-900 py-12 border-b border-slate-200 dark:border-slate-800 transition-colors">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
         {/* Left: Company Logo & Job Title */}
-        <div className="flex flex-col md:flex-row items-start gap-8">
-          <div className="size-28 rounded-3xl bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm p-4 shrink-0 transition-all hover:shadow-md">
+        <div className="flex flex-col md:flex-row items-start gap-6">
+          <div className="size-24 bg-white dark:bg-slate-800 flex items-center justify-center overflow-hidden shrink-0 transition-all">
             <img
               src={demoImage}
               alt="Rockstar Games New York"
               className="w-full h-full object-contain"
             />
           </div>
-          <div className="space-y-3">
-            <p className="text-[#059669]  text-base tracking-wide uppercase">
+          <div className="space-y-1">
+            <p className="text-[#059669] text-sm font-semibold tracking-wide">
               Rockstar Games New York
             </p>
-            <h1 className="text-3xl md:text-2xl font-bold text-slate-900 dark:text-white leading-tight flex flex-wrap items-center gap-3">
+            <h1 className="text-xl font-bold text-slate-900 dark:text-white leading-tight flex flex-wrap items-center gap-3">
               Senior UI/UX Designer
               <CircleCheck className="size-7 text-[#4F46E5] fill-[#4F46E5]/10 shrink-0" />
             </h1>
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-slate-500 dark:text-slate-400 font-semibold text-[15px] pt-1">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-slate-500 dark:text-slate-400  text-[15px] pt-1">
               <span className="flex items-center gap-2">
                 <MapPin className="size-5 text-slate-300 dark:text-slate-600" />
                 Las Vegas, NV 89107, USA
@@ -42,12 +42,9 @@ export default function JobHeader() {
                 2 days ago
               </span>
             </div>
-            <div className="flex items-center gap-3 mt-6">
-              <span className="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-bold text-sm tracking-tight border border-slate-200/50 dark:border-slate-700/50">
+            <div className="flex items-center gap-3 mt-2">
+              <span className="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-medium text-xs tracking-tight border border-slate-200/50 dark:border-slate-700/50">
                 Full-time
-              </span>
-              <span className="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-bold text-sm tracking-tight border border-slate-200/50 dark:border-slate-700/50">
-                Remote
               </span>
             </div>
           </div>
@@ -70,7 +67,7 @@ export default function JobHeader() {
             >
               <Heart className="size-5" />
             </Button>
-            <Button className="h-14 px-10 rounded-xl bg-[#10b981] hover:bg-[#059669] text-white font-black text-lg gap-3 shadow-lg shadow-emerald-500/20 transition-all active:scale-95">
+            <Button className="h-12 px-16 rounded-none bg-[#10b981] hover:bg-[#059669] text-white  gap-3 transition-all active:scale-95">
               <Send className="size-5 rotate-[-20deg]" />
               Apply Now
             </Button>

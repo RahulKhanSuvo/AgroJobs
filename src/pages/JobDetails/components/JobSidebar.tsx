@@ -54,7 +54,7 @@ export default function JobSidebar() {
   return (
     <div className="space-y-8">
       {/* Info List */}
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 space-y-6">
+      <div className="bg-slate-50 dark:bg-slate-900/50 rounded p-6 border border-slate-200 dark:border-slate-800 space-y-6">
         <div className="space-y-4">
           {infoItems.map((item, idx) => (
             <div
