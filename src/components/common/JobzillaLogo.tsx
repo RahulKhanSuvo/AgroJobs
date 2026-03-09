@@ -15,7 +15,7 @@ export default function JobzillaLogo({
       <svg
         viewBox="0 0 100 100"
         className={cn(
-          "size-10 text-emerald-600 fill-current",
+          "size-10 text-primary fill-current",
           iconOnly ? "size-12" : "size-10",
         )}
         xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export default function JobzillaLogo({
 
       {!iconOnly && (
         <span className="text-2xl font-black tracking-tighter text-slate-900 dark:text-white transition-colors">
-          Job<span className="text-emerald-600">Zilla</span>
+          Job<span className="text-primary">Zilla</span>
         </span>
       )}
     </div>
