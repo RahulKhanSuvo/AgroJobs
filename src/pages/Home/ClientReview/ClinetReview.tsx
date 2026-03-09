@@ -10,22 +10,6 @@ import "swiper/css/pagination";
 
 const mockReviews: Review[] = [
   {
-    id: 1,
-    text: "Working with this platform has been a game changer for our recruiting. We are able to do a first screening of candidates so much easier than if we had to meet everyone. We can truly identify and assess a talent pool more efficiently.",
-    clientName: "Pete Jones",
-    clientRole: "Head of Marketing Build",
-    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pete",
-    rating: 5,
-  },
-  {
-    id: 2,
-    text: "We were looking for a way to streamline our hiring process and found the perfect solution here. The quality of candidates is exceptional, and the feedback from our hiring managers has been overwhelmingly positive.",
-    clientName: "Sarah Chen",
-    clientRole: "Lead Talent Acquisition",
-    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-    rating: 5,
-  },
-  {
     id: 3,
     text: "The platform's ease of use and the depth of talent available have made our recruitment efforts much more productive. It's now our go-to source for finding top-tier technical talent.",
     clientName: "Mark Wilson",
@@ -49,6 +33,38 @@ const mockReviews: Review[] = [
     clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert",
     rating: 5,
   },
+  {
+    id: 6,
+    text: "The candidates we found through this platform were highly qualified and a great fit for our company culture. The process was smooth and efficient from start to finish.",
+    clientName: "Robert Brown",
+    clientRole: "Software Engineering Director",
+    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert",
+    rating: 5,
+  },
+  {
+    id: 7,
+    text: "The candidates we found through this platform were highly qualified and a great fit for our company culture. The process was smooth and efficient from start to finish.",
+    clientName: "Robert Brown",
+    clientRole: "Software Engineering Director",
+    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert",
+    rating: 5,
+  },
+  {
+    id: 8,
+    text: "The candidates we found through this platform were highly qualified and a great fit for our company culture. The process was smooth and efficient from start to finish.",
+    clientName: "Robert Brown",
+    clientRole: "Software Engineering Director",
+    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert",
+    rating: 5,
+  },
+  {
+    id: 9,
+    text: "The candidates we found through this platform were highly qualified and a great fit for our company culture. The process was smooth and efficient from start to finish.",
+    clientName: "Robert Brown",
+    clientRole: "Software Engineering Director",
+    clientAvatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert",
+    rating: 5,
+  },
 ];
 
 export default function ClinetReview() {
@@ -62,11 +78,10 @@ export default function ClinetReview() {
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={30}
-          slidesPerView={1.2}
           centeredSlides={true}
           loop={true}
           autoplay={{
-            delay: 4000,
+            delay: 7000,
             disableOnInteraction: false,
           }}
           pagination={{
@@ -90,7 +105,7 @@ export default function ClinetReview() {
               centeredSlides: false,
             },
             1536: {
-              slidesPerView: 5,
+              slidesPerView: 4,
               centeredSlides: false,
             },
           }}
@@ -103,7 +118,7 @@ export default function ClinetReview() {
           ))}
         </Swiper>
 
-        <div className="client-review-pagination flex items-center justify-center gap-2" />
+        <div className="client-review-pagination mt-11 flex items-center justify-center gap-2" />
       </div>
     </div>
   );

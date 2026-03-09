@@ -16,7 +16,7 @@ interface ReviewCardProps {
 
 export default function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <CommonWrapper className="p-8 group transition-all duration-500 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500/30 dark:hover:border-emerald-500/30 relative hover:shadow-[0_20px_50px_rgba(16,185,129,0.1)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] h-full flex flex-col justify-between">
+    <CommonWrapper className="p-8 group w-full transition-all duration-500 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500/30 dark:hover:border-emerald-500/30 relative hover:shadow-[0_20px_50px_rgba(16,185,129,0.1)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)] h-full flex flex-col justify-between">
       <div className="space-y-6">
         <p className="text-slate-600 dark:text-slate-400 font-bold leading-relaxed text-lg italic">
           "{review.text}"
