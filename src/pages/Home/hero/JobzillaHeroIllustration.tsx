@@ -34,6 +34,77 @@ export default function JobzillaHeroIllustration() {
       {/* Sky */}
       <rect width="800" height="600" fill="url(#skyGradient)" />
 
+      {/* Animated Clouds */}
+      <motion.g
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2 }}
+      >
+        {/* Large Cloud 1 */}
+        <motion.path
+          d="M100 120 Q120 100 150 110 T200 120 T250 110 T300 130 T250 150 T200 140 T150 150 T100 130 Z"
+          fill="white"
+          opacity="0.05"
+          animate={{
+            x: [-20, 40, -20],
+            opacity: [0.03, 0.08, 0.03],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        {/* Small Cloud 2 */}
+        <motion.path
+          d="M500 80 Q520 70 540 80 T580 85 T620 75 T580 100 T540 95 T500 100 Z"
+          fill="white"
+          opacity="0.07"
+          animate={{
+            x: [0, -30, 0],
+            opacity: [0.05, 0.1, 0.05],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+        />
+        {/* Medium Cloud 3 */}
+        <motion.path
+          d="M650 200 Q670 185 700 190 T750 200 T700 220 T650 215 Z"
+          fill="white"
+          opacity="0.04"
+          animate={{
+            x: [-10, 20, -10],
+            opacity: [0.02, 0.06, 0.02],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 5,
+          }}
+        />
+        {/* Cloud 4 */}
+        <motion.path
+          d="M50 250 Q80 230 110 240 T160 250 T110 270 T50 260 Z"
+          fill="white"
+          opacity="0.06"
+          animate={{
+            x: [20, -20, 20],
+            opacity: [0.03, 0.09, 0.03],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+      </motion.g>
+
       {/* Distant Buildings (Silhouettes) */}
       <motion.g
         initial={{ y: 20 }}
