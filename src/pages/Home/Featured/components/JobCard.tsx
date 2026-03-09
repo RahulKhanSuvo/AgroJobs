@@ -1,4 +1,4 @@
-import { MapPin, Clock, Star, ShieldCheck } from "lucide-react";
+import { MapPin, Clock, Star } from "lucide-react";
 import CommonWrapper from "@/components/common/CommonWrapper";
 import { IoHeart } from "react-icons/io5";
 import { Link } from "react-router";
@@ -21,10 +21,10 @@ interface FeaturedJobCardProps {
   job: Job;
 }
 
-export default function FeaturedJobCard({ job }: FeaturedJobCardProps) {
+export default function JobCard({ job }: FeaturedJobCardProps) {
   return (
     <Link to={`/job/${job.id}`}>
-      <CommonWrapper className="p-6 group transition-all duration-300 border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 relative">
+      <CommonWrapper className="p-6 group transition-all duration-300 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-500/50 dark:hover:border-emerald-500/50 relative">
         <button className="absolute top-6 right-6 p-2 rounded-full border dark:bg-slate-950 text-slate-400 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-400 transition-colors z-10">
           <IoHeart className="size-5" />
         </button>
@@ -38,24 +38,21 @@ export default function FeaturedJobCard({ job }: FeaturedJobCardProps) {
                 className="size-full object-contain"
               />
             </div>
-            <div className="space-y-1 mt-0.5 overflow-hidden">
-              <p className="text-xs font-black text-emerald-600 dark:text-emerald-500 hover:underline cursor-pointer transition-all">
+            <div className="overflow-hidden">
+              <p className="font-medium text-primary dark:text-primary  cursor-pointer transition-all">
                 {job.company}
               </p>
-              <div className="flex items-center gap-1.5">
-                <h4 className="text-xl font-black text-slate-900 dark:text-white leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
+              <div className="flex items-center">
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white leading-tight group-hover:text-primary dark:group-hover:text-primary transition-colors truncate">
                   {job.title}
                 </h4>
-                <div className="bg-indigo-600 rounded-full p-0.5 shrink-0">
-                  <ShieldCheck className="size-3 text-white fill-white" />
-                </div>
               </div>
-              <div className="flex items-center gap-4 text-slate-400 dark:text-slate-500 font-bold">
-                <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500 font-bold mt-1.5">
+                <div className="flex items-center gap-0.5">
                   <MapPin className="size-3.5 text-slate-400/80" />
                   <span className="text-xs">{job.location}</span>
                 </div>
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-0.5">
                   <Clock className="size-3.5 text-slate-400/80" />
                   <span className="text-xs">{job.postedAt}</span>
                 </div>

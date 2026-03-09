@@ -1,78 +1,85 @@
-import JobCard, { type Job } from "./JobCard";
 import { motion, type Variants } from "framer-motion";
+import demoLogo from "@assets/logos/profile-1.jpg";
+import JobCard from "@/pages/Home/Featured/components/JobCard";
 
-const mockJobs: Job[] = [
+const mockFeaturedJobs = [
   {
     id: 1,
     company: "Rockstar Games New York",
-    logo: "https://api.dicebear.com/7.x/initials/svg?seed=RG",
+    logo: demoLogo,
     title: "Senior UI/UX Designer",
     location: "Las Vegas, NV 89107, USA",
     postedAt: "2 days ago",
-    salary: "$1,000 - $2,000/year",
+    salary: "$1,000 - $2,000",
     deadline: "2 days left to apply",
-    tags: ["UI UX Design", "Project Manager", "Accounting"],
-    rating: 5,
+    tags: ["Accounting", "Sales & Marketing", "UI UX Design"],
+    rating: 4,
+    isVerified: true,
   },
   {
     id: 2,
     company: "Rockstar Games New York",
-    logo: "https://api.dicebear.com/7.x/initials/svg?seed=RG",
-    title: "Full Stack Development",
+    logo: demoLogo,
+    title: "Project Manager",
     location: "Las Vegas, NV 89107, USA",
     postedAt: "2 days ago",
-    salary: "$1,100 - $1,500/year",
-    deadline: "7 days left to apply",
-    tags: ["UI UX Design", "Project Manager"],
+    salary: "$1,000 - $1,300",
+    deadline: "5 days left to apply",
+    tags: ["UI UX Design", "Accounting"],
     rating: 4,
+    isVerified: true,
   },
   {
     id: 3,
     company: "Rockstar Games New York",
-    logo: "https://api.dicebear.com/7.x/initials/svg?seed=RG",
-    title: "Social Media Marketing",
+    logo: demoLogo,
+    title: "Full Stack Development",
     location: "Las Vegas, NV 89107, USA",
     postedAt: "2 days ago",
-    salary: "$1,100 - $1,400/year",
-    deadline: "5 days left to apply",
-    tags: ["UI UX Design", "Accounting"],
+    salary: "$2,000 - $2,400",
+    deadline: "6 days left to apply",
+    tags: ["UI UX Design", "Project Manager", "Accounting"],
     rating: 4,
+    isVerified: true,
   },
   {
     id: 4,
     company: "Rockstar Games New York",
-    logo: "https://api.dicebear.com/7.x/initials/svg?seed=RG",
-    title: "Senior DevOps Engineer",
+    logo: demoLogo,
+    title: "Social Media Marketing",
     location: "Las Vegas, NV 89107, USA",
     postedAt: "2 days ago",
-    salary: "$1,300 - $1,500/year",
-    deadline: "5 days left to apply",
-    tags: ["Project Manager", "Sales & Marketing", "Accounting"],
-    rating: 5,
+    salary: "$1,100 - $1,500",
+    deadline: "7 days left to apply",
+    tags: ["UI UX Design", "Project Manager"],
+    rating: 4,
+    isVerified: true,
   },
   {
     id: 5,
     company: "Rockstar Games New York",
-    logo: "https://api.dicebear.com/7.x/initials/svg?seed=RG",
-    title: "HR Administration",
+    logo: demoLogo,
+    title: "Senior DevOps Engineer",
     location: "Las Vegas, NV 89107, USA",
     postedAt: "2 days ago",
-    salary: "$1,000 - $5,000/year",
-    deadline: "4 days left to apply",
-    tags: ["UI UX Design", "Project Manager", "Sales & Marketing"],
+    salary: "$1,500 - $1,800",
+    deadline: "3 days left to apply",
+    tags: ["Sales & Marketing", "Accounting"],
     rating: 4,
+    isVerified: true,
   },
   {
     id: 6,
     company: "Rockstar Games New York",
-    logo: "https://api.dicebear.com/7.x/initials/svg?seed=RG",
-    title: "Project Manager",
+    logo: demoLogo,
+    title: "HR Administration",
     location: "Las Vegas, NV 89107, USA",
-    postedAt: "5 days ago",
-    salary: "$1,000 - $1,300/year",
+    postedAt: "2 days ago",
+    salary: "$1,100 - $1,400",
     deadline: "5 days left to apply",
-    tags: ["Project Manager"],
-    rating: 5,
+    tags: ["UI UX Design", "Accounting"],
+    rating: 4,
+    isVerified: true,
   },
 ];
 
@@ -108,12 +115,12 @@ export default function JobList({ layout }: JobListProps) {
       className={
         layout === "grid"
           ? "grid grid-cols-1 lg:grid-cols-2 gap-6"
-          : "flex flex-col gap-4"
+          : "flex flex-col gap-6"
       }
     >
-      {mockJobs.map((job) => (
+      {mockFeaturedJobs.map((job) => (
         <motion.div key={job.id} variants={item}>
-          <JobCard job={job} layout={layout} />
+          <JobCard job={job} />
         </motion.div>
       ))}
     </motion.div>
