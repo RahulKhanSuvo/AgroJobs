@@ -1,4 +1,3 @@
-import LoginIllustration from "./components/LoginIllustration";
 import JobzillaLogo from "@/components/common/JobzillaLogo";
 
 interface LoginInfoProps {
@@ -24,8 +23,6 @@ export default function LoginInfo({
         </div>
 
         <div className="flex flex-col items-center justify-center gap-8 text-center lg:text-left lg:items-start max-w-2xl mx-auto lg:mx-0 w-full">
-          <LoginIllustration />
-
           <div className="text-slate-900 dark:text-white space-y-4 transition-colors w-full">
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
               {heading}
