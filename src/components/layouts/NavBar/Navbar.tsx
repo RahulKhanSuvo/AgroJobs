@@ -104,7 +104,7 @@ const Navbar = ({
       <div className="max-w-[1905px] mx-auto  px-10">
         {/* Desktop Menu */}
         <nav className="hidden items-center justify-between lg:flex">
-          <div className="flex-1 ">
+          <div className="flex-1 flex items-center">
             {/* Logo */}
             <Link to={logo.url}>
               <JobzillaLogo />
