@@ -31,7 +31,7 @@ export default function FeaturedJobCard({ job }: FeaturedJobCardProps) {
 
         <div className="space-y-5">
           <div className="flex items-start gap-4">
-            <div className="size-14 shrink-0 rounded-xl bg-slate-50 dark:bg-slate-950 flex items-center justify-center overflow-hidden p-2.5 border border-slate-100 dark:border-slate-800 group-hover:rotate-6 transition-transform duration-500">
+            <div className="size-[60px] shrink-0  bg-slate-50 dark:bg-slate-950 flex items-center justify-center overflow-hidden dark:border-slate-800 group-hover:rotate-6 transition-transform duration-500">
               <img
                 src={job.logo}
                 alt={job.company}
@@ -84,7 +84,7 @@ export default function FeaturedJobCard({ job }: FeaturedJobCardProps) {
             </div>
           </div>
 
-          <div className="pt-5 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between">
+          <div className="pt-5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <div className="size-8 rounded-full bg-slate-50 dark:bg-slate-950 flex items-center justify-center border border-slate-100 dark:border-slate-800">
                 <span className="text-emerald-600 font-black text-xs">$</span>
