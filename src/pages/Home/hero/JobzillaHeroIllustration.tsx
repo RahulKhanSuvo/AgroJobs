@@ -390,7 +390,7 @@ export default function JobzillaHeroIllustration() {
         ))}
       </motion.g>
 
-      {/* ── MONSTER MASCOT ── */}
+      {/* ── JOBZILLA MASCOT ── */}
       <motion.g
         transform="translate(340, 240) scale(1.5)"
         animate={{
@@ -436,59 +436,54 @@ export default function JobzillaHeroIllustration() {
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Body (Monster Shape) */}
+        {/* Body (Jobzilla Official Shape) */}
         <path
           fill="#10b981"
-          d="M75 35 C85 35 95 45 95 60 C95 80 75 90 50 90 C25 90 5 80 5 60 C5 45 15 35 25 35 L25 30 L40 35 C45 35 50 25 55 20 C60 15 70 15 75 20 L75 35 Z"
+          d="M75 35 C85 35 90 45 90 55 C90 75 70 85 50 85 C30 85 10 75 10 55 C10 40 25 30 40 30 C45 30 50 25 55 20 C60 15 70 15 75 20 L75 35 Z"
         />
 
-        {/* Spikes / Horns */}
-        <path fill="#059669" d="M30 35 L20 10 L40 30 Z" />
-        <path fill="#059669" d="M50 22 L48 0 L62 18 Z" />
-        <path fill="#059669" d="M70 20 L72 -2 L82 15 Z" />
+        {/* Official Back Spikes */}
+        <path fill="#059669" d="M35 30 L25 15 L45 25 Z" />
+        <path fill="#059669" d="M50 22 L45 5 L60 18 Z" />
+        <path fill="#059669" d="M65 20 L65 2 L75 15 Z" />
 
-        {/* Eye */}
-        <circle cx="72" cy="48" r="6" fill="white" />
+        {/* Official Eye */}
+        <circle cx="70" cy="45" r="4" fill="white" />
         <motion.circle
-          cx="73"
-          cy="48"
-          r="3"
+          cx="71"
+          cy="45"
+          r="2"
           fill="black"
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
         />
 
-        {/* Monster Mouth with Sharp Teeth */}
-        <g>
-          <path
-            d="M60 68 Q75 75 88 62"
-            fill="none"
-            stroke="white"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-          {/* Teeth */}
-          <path d="M68 69 L72 74 L76 70" fill="white" />
-          <path d="M78 71 L82 72 L86 65" fill="white" />
-        </g>
+        {/* Official Smile/Mouth */}
+        <path
+          d="M65 65 Q75 65 85 55"
+          fill="none"
+          stroke="white"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
 
-        {/* Briefcase (Jobzilla style) */}
+        {/* Briefcase (Official Style) */}
         <motion.g
           animate={{ rotate: [-2, 2, -2] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
           <rect
-            x="20"
-            y="58"
+            x="25"
+            y="55"
             width="30"
-            height="22"
-            rx="3"
+            height="20"
+            rx="2"
             fill="#059669"
             stroke="white"
             strokeWidth="2"
           />
           <path
-            d="M28 58 L28 53 Q28 48 35 48 L35 48 Q42 48 42 53 L42 58"
+            d="M35 55 L35 50 Q35 45 40 45 T45 50 L45 55"
             fill="none"
             stroke="white"
             strokeWidth="2"
