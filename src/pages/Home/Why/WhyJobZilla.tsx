@@ -62,7 +62,7 @@ export default function WhyJobZilla() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-lg font-black text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-lg font-black text-[#121212] dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {feature.title}
                   </h3>
                   <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
