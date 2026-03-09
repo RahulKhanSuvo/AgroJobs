@@ -8,132 +8,198 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Search, MapPin } from "lucide-react";
+import { Field } from "@/components/ui/field";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 export default function JobFilters() {
   return (
-    <div className="space-y-6 w-full shrink-0 p-6 bg-[#F5F5F5] dark:bg-slate-900 border border-slate-100 dark:border-slate-800 transition-colors">
-      <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight -mb-2">
-        Filters
-      </h3>
-
-      {/* Search */}
-      <div className="space-y-2">
-        <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-          Keyword Search
+    <div className="space-y-6 sticky top-20 w-full shrink-0 p-6 bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 transition-colors">
+      {/* Search Company */}
+      <Field className="space-y-2">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
+          Search Company
         </label>
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400 group-focus-within:text-emerald-500 transition-colors" />
           <Input
-            placeholder="Job title, keywords..."
-            className="pl-10 h-11 bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 rounded-xl text-sm focus-visible:ring-emerald-500/20 focus-visible:border-emerald-500 transition-all dark:text-slate-200"
+            placeholder="Job title, key words or company"
+            className="pl-10 h-11 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-sm focus-visible:ring-emerald-500/20 focus-visible:border-emerald-500 transition-all dark:text-slate-200 border-2"
           />
         </div>
-      </div>
-
-      <div className="h-px bg-slate-100 dark:bg-slate-800" />
+      </Field>
 
       {/* Location */}
-      <div className="space-y-2">
-        <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+      <Field className="space-y-2">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
           Location
         </label>
         <div className="relative">
-          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400 z-10" />
+          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-slate-400 z-10 transition-colors" />
           <Select defaultValue="all">
-            <SelectTrigger className="pl-10 h-11 bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 rounded-xl text-sm w-full dark:text-slate-200">
+            <SelectTrigger className="pl-10 h-11 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-sm w-full dark:text-slate-200 border-2">
               <SelectValue placeholder="All Location" />
             </SelectTrigger>
-            <SelectContent className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200">
+            <SelectContent
+              position="popper"
+              className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200"
+            >
               <SelectItem value="all">All Location</SelectItem>
               <SelectItem value="tokyo">Tokyo, Japan</SelectItem>
               <SelectItem value="vegas">Las Vegas, USA</SelectItem>
+              <SelectItem value="bangladesh">Bangladesh</SelectItem>
             </SelectContent>
           </Select>
         </div>
-      </div>
+      </Field>
 
-      {/* Category */}
-      <div className="space-y-2">
-        <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+      {/* Job Category */}
+      <Field className="space-y-2">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
           Job Category
         </label>
         <Select defaultValue="all">
-          <SelectTrigger className="h-11 bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 rounded-xl text-sm w-full dark:text-slate-200">
+          <SelectTrigger className="h-11 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-sm w-full dark:text-slate-200 border-2">
             <SelectValue placeholder="All Categories" />
           </SelectTrigger>
-          <SelectContent className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200">
+          <SelectContent
+            position="popper"
+            className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200"
+          >
             <SelectItem value="all">All Categories</SelectItem>
             <SelectItem value="design">Design</SelectItem>
             <SelectItem value="dev">Development</SelectItem>
           </SelectContent>
         </Select>
-      </div>
+      </Field>
 
-      <div className="h-px bg-slate-100 dark:bg-slate-800" />
+      {/* On-Site/Remote */}
+      <Field className="space-y-2">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
+          On-Site/Remote
+        </label>
+        <Select defaultValue="all">
+          <SelectTrigger className="h-11 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-sm w-full dark:text-slate-200 border-2">
+            <SelectValue placeholder="All Types" />
+          </SelectTrigger>
+          <SelectContent
+            position="popper"
+            className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200"
+          >
+            <SelectItem value="all">All Types</SelectItem>
+            <SelectItem value="remote">Remote</SelectItem>
+            <SelectItem value="onsite">On-Site</SelectItem>
+            <SelectItem value="hybrid">Hybrid</SelectItem>
+          </SelectContent>
+        </Select>
+      </Field>
+
+      {/* Technology */}
+      <Field className="space-y-2">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
+          Techology
+        </label>
+        <Select defaultValue="any">
+          <SelectTrigger className="h-11 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-sm w-full dark:text-slate-200 border-2">
+            <SelectValue placeholder="Any Technology" />
+          </SelectTrigger>
+          <SelectContent
+            position="popper"
+            className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200"
+          >
+            <SelectItem value="any">Any Technology</SelectItem>
+            <SelectItem value="react">React</SelectItem>
+            <SelectItem value="vue">Vue</SelectItem>
+            <SelectItem value="node">Node.js</SelectItem>
+          </SelectContent>
+        </Select>
+      </Field>
 
       {/* Salary Range */}
-      <div className="space-y-4">
-        <div className="flex justify-between items-center">
-          <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-            Salary Range
-          </label>
+      <Field className="space-y-3">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
+          Salary:{" "}
+          <span className="text-emerald-500 font-bold ml-1">$0k - $20k</span>
+        </label>
+        <div className="space-y-2.5">
+          {[
+            { id: "s1", label: "$0 - $5,000" },
+            { id: "s2", label: "$5,000 - $10,000" },
+            { id: "s3", label: "$10,000 - $15,000" },
+            { id: "s4", label: "$15,000 - $20,000" },
+            {
+              id: "s4",
+              label: "more then $20,000",
+            },
+          ].map((range) => (
+            <div
+              key={range.id}
+              className="flex items-center space-x-3 group cursor-pointer"
+            >
+              <Checkbox
+                id={range.id}
+                className="border-slate-300 dark:border-slate-700 data-[state=checked]:bg-emerald-500 data-[state=checked]:border-emerald-500 transition-colors"
+              />
+              <Label
+                htmlFor={range.id}
+                className="text-sm font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200 cursor-pointer transition-colors"
+              >
+                {range.label}
+              </Label>
+            </div>
+          ))}
         </div>
-        <div className="space-y-2">
-          <div className="text-sm font-bold text-slate-900 dark:text-slate-200">
-            $1,000 - $5,000
-          </div>
-          <input
-            type="range"
-            className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500"
-            min="1000"
-            max="10000"
-            step="500"
-          />
-        </div>
-      </div>
+      </Field>
+      {/* Posted Anytime */}
+      <Field className="space-y-2">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
+          Posted Anytime
+        </label>
+        <Select defaultValue="anytime">
+          <SelectTrigger className="h-11 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-sm w-full dark:text-slate-200 border-2">
+            <SelectValue placeholder="Posted Anytime" />
+          </SelectTrigger>
+          <SelectContent
+            position="popper"
+            className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200"
+          >
+            <SelectItem value="anytime">Posted Anytime</SelectItem>
+            <SelectItem value="today">Today</SelectItem>
+            <SelectItem value="week">Past Week</SelectItem>
+            <SelectItem value="month">Past Month</SelectItem>
+          </SelectContent>
+        </Select>
+      </Field>
 
-      {/* Type & Seniority */}
-      <div className="grid grid-cols-2 gap-4">
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-            Type
-          </label>
-          <Select defaultValue="all">
-            <SelectTrigger className="h-11 bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 rounded-xl text-sm w-full dark:text-slate-200">
-              <SelectValue placeholder="Type" />
-            </SelectTrigger>
-            <SelectContent className="dark:bg-slate-900 dark:border-slate-800">
-              <SelectItem value="all">All</SelectItem>
-              <SelectItem value="remote">Remote</SelectItem>
-              <SelectItem value="onsite">On-Site</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="space-y-2">
-          <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-            Seniority
-          </label>
-          <Select defaultValue="all">
-            <SelectTrigger className="h-11 bg-slate-50 dark:bg-slate-950 border-slate-100 dark:border-slate-800 rounded-xl text-sm w-full dark:text-slate-200">
-              <SelectValue placeholder="Seniority" />
-            </SelectTrigger>
-            <SelectContent className="dark:bg-slate-900 dark:border-slate-800">
-              <SelectItem value="all">All</SelectItem>
-              <SelectItem value="junior">Junior</SelectItem>
-              <SelectItem value="senior">Senior</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
+      {/* Seniority Levels */}
+      <Field className="space-y-2">
+        <label className="text-sm font-bold text-slate-900 dark:text-slate-100">
+          Seniority Levels
+        </label>
+        <Select defaultValue="all">
+          <SelectTrigger className="h-11 bg-white dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-lg text-sm w-full dark:text-slate-200 border-2">
+            <SelectValue placeholder="All Levels" />
+          </SelectTrigger>
+          <SelectContent
+            position="popper"
+            className="dark:bg-slate-900 dark:border-slate-800 dark:text-slate-200"
+          >
+            <SelectItem value="all">All Levels</SelectItem>
+            <SelectItem value="junior">Junior</SelectItem>
+            <SelectItem value="mid">Mid-Level</SelectItem>
+            <SelectItem value="senior">Senior</SelectItem>
+          </SelectContent>
+        </Select>
+      </Field>
 
-      <div className="pt-4 space-y-3">
+      <div className="pt-4 space-y-4">
         <Button
-          variant="ghost"
-          className="w-full h-11 text-slate-500 dark:text-slate-400 font-bold hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
+          variant="outline"
+          className="w-full h-12 border-emerald-500 text-emerald-600 dark:text-emerald-500 font-bold hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-all rounded-xl border-2 shadow-sm"
         >
-          Clear All
+          Clear Filter
         </Button>
-        <Button className="w-full h-11 bg-emerald-600 text-white font-bold hover:bg-emerald-500 rounded-xl shadow-[0_10px_20px_rgba(16,185,129,0.2)] transition-all">
+        <Button className="w-full h-12 bg-emerald-500 text-white font-bold hover:bg-emerald-600 rounded-xl transition-all border-none shadow-md shadow-emerald-500/20 active:scale-95">
           Find Jobs
         </Button>
       </div>
