@@ -29,6 +29,7 @@ import About from "@/pages/About/About";
 import Contact from "@/pages/Contact/Contact";
 import PrivacyPolicy from "@/pages/PrivacyPolicy/PrivacyPolicy";
 import JobDetails from "@/pages/JobDetails/JobDetails";
+import Pricing from "@/pages/Pricing/Pricing";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/pricing",
+        element: <Pricing />,
       },
     ],
   },
