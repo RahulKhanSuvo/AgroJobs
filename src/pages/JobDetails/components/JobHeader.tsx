@@ -51,23 +51,23 @@ export default function JobHeader() {
         </div>
 
         {/* Right: Actions, Rating & Salary */}
-        <div className="flex flex-col items-start lg:items-end gap-6 min-w-max">
+        <div className="flex flex-col items-start lg:items-end gap-2 min-w-max">
           <div className="flex items-center gap-4">
             <Button
               variant="outline"
               size="icon"
-              className="size-12 rounded-full border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-slate-500 shadow-sm transition-all active:scale-95"
+              className="size-10 rounded-full border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-slate-500 transition-all active:scale-95"
             >
               <Share2 className="size-5" />
             </Button>
             <Button
               variant="outline"
               size="icon"
-              className="size-12 rounded-full border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-slate-500 shadow-sm transition-all active:scale-95"
+              className="size-10 rounded-full border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 text-slate-500 transition-all active:scale-95"
             >
               <Heart className="size-5" />
             </Button>
-            <Button className="h-12 px-16 rounded-none bg-[#10b981] hover:bg-[#059669] text-white  gap-3 transition-all active:scale-95">
+            <Button className="h-10 px-16 rounded-none bg-[#10b981] hover:bg-[#059669] text-white  gap-3 transition-all active:scale-95">
               <Send className="size-5 rotate-[-20deg]" />
               Apply Now
             </Button>
@@ -87,11 +87,11 @@ export default function JobHeader() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 mt-1">
-            <div className="size-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-              <CircleDollarSign className="size-6 text-[#10b981]" />
+          <div className="flex items-center gap-3">
+            <div className=" rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+              <CircleDollarSign className=" text-[#10b981]" />
             </div>
-            <p className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tighter">
+            <p className="text-sm font-semibold  dark:text-white tracking-tighter">
               $83,000 - $110,000
               <span className="text-base text-slate-400 dark:text-slate-500 font-bold tracking-normal ml-2">
                 /year
