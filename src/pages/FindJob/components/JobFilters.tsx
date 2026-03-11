@@ -107,7 +107,7 @@ export default function JobFilters() {
             { id: "s3", label: "$10,000 - $15,000" },
             { id: "s4", label: "$15,000 - $20,000" },
             {
-              id: "s4",
+              id: "s5",
               label: "more then $20,000",
             },
           ].map((range) => (
