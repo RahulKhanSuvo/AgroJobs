@@ -32,6 +32,7 @@ import {
   Image as ImageIcon,
   Video,
   ArrowLeft,
+  Camera,
 } from "lucide-react";
 import {
   FaFacebookF,
@@ -132,17 +133,48 @@ export default function RecruiterProfileEdit() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-6"
       >
-        {/* Logo and Cover Upload */}
-        <CommonWrapper className="p-8">
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Logo Upload */}
-            <div className="space-y-4">
-              <FieldLabel className="text-sm font-semibold">
-                Upload a Logo:
-              </FieldLabel>
-              <p className="text-xs text-muted-foreground">JPG-80x80px</p>
-              <div className="flex items-center gap-4">
-                <div className="size-20 rounded-xl border-2 border-dashed border-border flex items-center justify-center overflow-hidden bg-slate-50">
+        {/* Header Section (Facebook Style) */}
+        <CommonWrapper className="p-0 overflow-hidden">
+          <div className="relative">
+            {/* Cover Upload Container */}
+            <div className="group relative h-48 md:h-64 w-full bg-slate-100 border-b border-border transition-all">
+              {coverPreview ? (
+                <img
+                  src={coverPreview}
+                  alt="Cover"
+                  className="size-full object-cover"
+                />
+              ) : (
+                <div className="size-full flex items-center justify-center">
+                  <ImageIcon className="size-12 text-muted-foreground/30" />
+                </div>
+              )}
+
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+
+              <Button
+                type="button"
+                variant="secondary"
+                size="sm"
+                onClick={() => document.getElementById("cover-upload")?.click()}
+                className="absolute bottom-4 right-4 gap-2 shadow-md bg-white hover:bg-slate-50 text-slate-900 border-none"
+              >
+                <Camera className="size-4" />
+                <span className="hidden sm:inline">Edit Cover Photo</span>
+              </Button>
+              <input
+                id="cover-upload"
+                type="file"
+                accept="image/*"
+                onChange={handleCoverChange}
+                className="hidden"
+              />
+            </div>
+
+            {/* Logo Upload Container (Overlapping) */}
+            <div className="px-8 pb-4">
+              <div className="relative -mt-16 sm:-mt-20 flex flex-col items-start gap-4">
+                <div className="group relative size-28 sm:size-36 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-white shrink-0">
                   {logoPreview ? (
                     <img
                       src={logoPreview}
@@ -150,20 +182,23 @@ export default function RecruiterProfileEdit() {
                       className="size-full object-cover"
                     />
                   ) : (
-                    <ImageIcon className="size-8 text-muted-foreground" />
+                    <div className="size-full flex items-center justify-center bg-slate-50">
+                      <ImageIcon className="size-10 text-muted-foreground/30" />
+                    </div>
                   )}
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Button
+
+                  {/* Logo Edit Overlay */}
+                  <button
                     type="button"
-                    variant="outline"
                     onClick={() =>
                       document.getElementById("logo-upload")?.click()
                     }
-                    className="h-9 px-4"
+                    className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                   >
-                    Browse...
-                  </Button>
+                    <div className="size-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white border border-white/40">
+                      <Camera className="size-5" />
+                    </div>
+                  </button>
                   <input
                     id="logo-upload"
                     type="file"
@@ -171,51 +206,14 @@ export default function RecruiterProfileEdit() {
                     onChange={handleLogoChange}
                     className="hidden"
                   />
-                  <p className="text-xs text-muted-foreground">
-                    No file selected.
-                  </p>
                 </div>
-              </div>
-            </div>
 
-            {/* Cover Upload */}
-            <div className="space-y-4 flex-1">
-              <FieldLabel className="text-sm font-semibold">
-                Upload a new cover:
-              </FieldLabel>
-              <p className="text-xs text-muted-foreground">JPG 1920x450px</p>
-              <div className="flex items-center gap-4">
-                <div className="h-20 w-full max-w-[400px] rounded-xl border-2 border-dashed border-border flex items-center justify-center overflow-hidden bg-slate-50">
-                  {coverPreview ? (
-                    <img
-                      src={coverPreview}
-                      alt="Cover"
-                      className="size-full object-cover"
-                    />
-                  ) : (
-                    <ImageIcon className="size-8 text-muted-foreground" />
-                  )}
-                </div>
-                <div className="flex flex-col gap-2">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() =>
-                      document.getElementById("cover-upload")?.click()
-                    }
-                    className="h-9 px-4"
-                  >
-                    Browse...
-                  </Button>
-                  <input
-                    id="cover-upload"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleCoverChange}
-                    className="hidden"
-                  />
-                  <p className="text-xs text-muted-foreground">
-                    No file selected.
+                <div className="flex-1 space-y-1">
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground">
+                    {form.watch("employerName") || "Company Name"}
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    PNG, JPG or JPEG. Max size 2MB
                   </p>
                 </div>
               </div>
