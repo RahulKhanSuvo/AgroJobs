@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useForm, Controller, useFieldArray } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   recruiterProfileSchema,
@@ -26,14 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
-import {
-  Trash2,
-  Plus,
-  Image as ImageIcon,
-  Video,
-  ArrowLeft,
-  Camera,
-} from "lucide-react";
+import { Image as ImageIcon, ArrowLeft, Camera } from "lucide-react";
 import {
   FaFacebookF,
   FaTwitter,
@@ -76,15 +69,6 @@ export default function RecruiterProfileEdit() {
     },
   });
 
-  const {
-    fields: galleryFields,
-    append: appendGallery,
-    remove: removeGallery,
-  } = useFieldArray({
-    control: form.control,
-    name: "gallery",
-  });
-
   const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -122,7 +106,7 @@ export default function RecruiterProfileEdit() {
         <Button
           type="submit"
           form="profile-edit-form"
-          className="bg-primary text-white font-bold px-8"
+          className="bg-primary rounded-none text-white font-bold px-8"
         >
           Save Profile
         </Button>
@@ -133,7 +117,6 @@ export default function RecruiterProfileEdit() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-6"
       >
-        {/* Header Section (Facebook Style) */}
         <CommonWrapper className="p-0 overflow-hidden">
           <div className="relative">
             {/* Cover Upload Container */}
@@ -157,7 +140,7 @@ export default function RecruiterProfileEdit() {
                 variant="secondary"
                 size="sm"
                 onClick={() => document.getElementById("cover-upload")?.click()}
-                className="absolute bottom-4 right-4 gap-2 shadow-md bg-white hover:bg-slate-50 text-slate-900 border-none"
+                className="absolute bottom-4 right-4 gap-2 shadow rounded bg-white hover:bg-slate-50 text-slate-900 border-none"
               >
                 <Camera className="size-4" />
                 <span className="hidden sm:inline">Edit Cover Photo</span>
@@ -174,7 +157,7 @@ export default function RecruiterProfileEdit() {
             {/* Logo Upload Container (Overlapping) */}
             <div className="px-8 pb-4">
               <div className="relative -mt-16 sm:-mt-20 flex flex-col items-start gap-4">
-                <div className="group relative size-28 sm:size-36 rounded-2xl overflow-hidden border-4 border-white shadow-xl bg-white shrink-0">
+                <div className="group relative size-28 sm:size-36 rounded overflow-hidden border-4 border-white shadow bg-white shrink-0">
                   {logoPreview ? (
                     <img
                       src={logoPreview}
@@ -347,17 +330,6 @@ export default function RecruiterProfileEdit() {
                 {form.formState.errors.categories?.message}
               </FieldError>
             </Field>
-
-            <Field className="md:col-span-2">
-              <FieldLabel>Profile URL</FieldLabel>
-              <Input
-                {...form.register("profileUrl")}
-                placeholder="https://jobsmake.com/company/avitex"
-              />
-              <FieldError>
-                {form.formState.errors.profileUrl?.message}
-              </FieldError>
-            </Field>
           </FieldGroup>
         </CommonWrapper>
 
@@ -376,69 +348,6 @@ export default function RecruiterProfileEdit() {
             )}
           />
           <FieldError>{form.formState.errors.aboutCompany?.message}</FieldError>
-        </CommonWrapper>
-
-        {/* Profile Photos */}
-        <CommonWrapper className="p-8 space-y-8">
-          <SectionTitle size={"sm"}>Profile Photo</SectionTitle>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {galleryFields.map((field, index) => (
-              <div
-                key={field.id}
-                className="relative aspect-video rounded-2xl overflow-hidden group border border-border"
-              >
-                <img
-                  src={field.url}
-                  alt=""
-                  className="size-full object-cover"
-                />
-                <button
-                  type="button"
-                  onClick={() => removeGallery(index)}
-                  className="absolute top-3 right-3 p-1.5 bg-red-500 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
-                >
-                  <Trash2 className="size-4" />
-                </button>
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center gap-4">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => document.getElementById("gallery-upload")?.click()}
-              className="gap-2"
-            >
-              <Plus className="size-4" />
-              Browse
-            </Button>
-            <input
-              id="gallery-upload"
-              type="file"
-              multiple
-              accept="image/*"
-              className="hidden"
-              onChange={(e) => {
-                const files = Array.from(e.target.files || []);
-                files.forEach((file) => {
-                  const url = URL.createObjectURL(file);
-                  appendGallery({ url });
-                });
-              }}
-            />
-            <span className="text-sm text-muted-foreground">Upload image</span>
-          </div>
-          <div className="space-y-4">
-            <FieldLabel className="text-sm font-semibold flex items-center gap-2">
-              <Video className="size-4 text-primary" />
-              Introduction Video
-            </FieldLabel>
-            <Input
-              {...form.register("introVideo")}
-              placeholder="https://www.youtube.com/watch?v=i6ZLgk_bq90"
-            />
-            <FieldError>{form.formState.errors.introVideo?.message}</FieldError>
-          </div>
         </CommonWrapper>
 
         {/* Social Network Section */}
