@@ -1,14 +1,7 @@
 import CommonWrapper from "@/components/common/CommonWrapper";
 import DashboardTitle from "@/components/common/DashboardTitle";
 import emptyImage from "@/assets/logos/image-up.jpg";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-  FaPinterestP,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import SectionTitle from "@/components/common/SectionTitle";
 import SkillTagsInput from "@/components/common/SkillTagsInput";
 import RichTextEditor from "@/components/common/RichTextEditor";
@@ -135,7 +128,7 @@ export default function ProfileEdit() {
               <img
                 src={previewUrl || emptyImage}
                 alt="empty"
-                className="size-28 object-cover rounded-md"
+                className="size-28 object-cover"
               />
             </div>
             <div className="flex flex-col gap-3">
@@ -601,24 +594,6 @@ export default function ProfileEdit() {
                   icon: FaTwitter,
                   name: "twitter" as const,
                   label: "Twitter",
-                  placeholder: "URL",
-                },
-                {
-                  icon: FaPinterestP,
-                  name: "pinterest" as const,
-                  label: "Pinterest",
-                  placeholder: "URL",
-                },
-                {
-                  icon: FaInstagram,
-                  name: "instagram" as const,
-                  label: "Instagram",
-                  placeholder: "URL",
-                },
-                {
-                  icon: FaYoutube,
-                  name: "youtube" as const,
-                  label: "YouTube",
                   placeholder: "URL",
                 },
               ].map((item, index) => (
