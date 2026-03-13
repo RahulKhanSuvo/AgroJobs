@@ -3,15 +3,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
-import {
-  Eye,
-  EyeOff,
-  User,
-  Mail,
-  Phone,
-  Briefcase,
-  Building2,
-} from "lucide-react";
+import { Eye, EyeOff, User, Mail, Briefcase, Building2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -214,48 +206,6 @@ export default function SignUp() {
                         <FieldError errors={[form.formState.errors.email]} />
                       )}
                     </Field>
-
-                    {/* Phone */}
-                    <Field>
-                      <FieldLabel
-                        htmlFor="phone"
-                        className="text-xs font-semibold text-paragraph tracking-wide uppercase"
-                      >
-                        Phone Number
-                      </FieldLabel>
-                      <div className="relative">
-                        <Input
-                          id="phone"
-                          type="tel"
-                          placeholder="+1 555 000 0000"
-                          aria-invalid={
-                            !!(form.formState.errors as Record<string, unknown>)
-                              .phone
-                          }
-                          className="pr-10"
-                          {...form.register("phone" as never)}
-                        />
-                        <Phone className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
-                      </div>
-                      {(
-                        form.formState.errors as Record<
-                          string,
-                          { message?: string }
-                        >
-                      ).phone && (
-                        <FieldError
-                          errors={[
-                            (
-                              form.formState.errors as Record<
-                                string,
-                                { message?: string }
-                              >
-                            ).phone,
-                          ]}
-                        />
-                      )}
-                    </Field>
-
                     {/* Password */}
                     <Field>
                       <FieldLabel
