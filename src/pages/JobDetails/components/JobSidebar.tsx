@@ -3,8 +3,6 @@ import {
   Mail,
   Phone,
   Users,
-  Calendar,
-  Headphones,
   Facebook,
   Twitter,
   Linkedin,
@@ -37,25 +35,13 @@ const infoItems = [
     icon: Users,
     color: "text-amber-500",
   },
-  {
-    label: "Member Since",
-    value: "Aug 2021",
-    icon: Calendar,
-    color: "text-rose-500",
-  },
-  {
-    label: "Front Desk",
-    value: "012 333 - 555 000",
-    icon: Headphones,
-    color: "text-cyan-500",
-  },
 ];
 
 export default function JobSidebar() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 mt-2.5">
       {/* Info List */}
-      <div className="bg-[#F5F5F5] dark:bg-slate-900/50 rounded-xl p-6 space-y-6">
+      <div className="bg-[#F5F5F5] dark:bg-slate-900/50 rounded p-6 space-y-6">
         <div>
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
             About Company
