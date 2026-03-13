@@ -44,7 +44,21 @@ export default function SignUp() {
   };
 
   const switchRole = (role: "CANDIDATE" | "EMPLOYER") => {
-    form.reset({ role } as Partial<signUpFormData>);
+    if (role === "CANDIDATE") {
+      form.reset({
+        role: "CANDIDATE",
+        fullName: "",
+        email: "",
+        password: "",
+      });
+    } else {
+      form.reset({
+        role: "EMPLOYER",
+        name: "",
+        email: "",
+        password: "",
+      });
+    }
   };
 
   return (

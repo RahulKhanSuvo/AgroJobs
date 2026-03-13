@@ -15,10 +15,6 @@ const candidateSchema = z.object({
   role: z.literal("CANDIDATE"),
   fullName: z.string().min(1, { message: "Full name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
-  phone: z
-    .string()
-    .min(1, { message: "Phone number is required" })
-    .regex(/^\+?[0-9]{10,15}$/, { message: "Invalid phone number" }),
   password: z
     .string()
     .min(6, { message: "Password must be at least 6 characters" })
